@@ -6,6 +6,7 @@ struct HomeView: View {
     @State private var inputText: String = ""
     @State private var showingBackButton: Bool = false
     @State private var artworks = ArtworkData.samples
+    @State private var selectedArtwork: Artwork? = nil
     
     enum Tab {
         case art, lifeUpdates
@@ -55,52 +56,69 @@ struct HomeView: View {
                     }
                     .padding(.horizontal)
                     
-                    // Help and Search
-                    HStack {
-                        Button(action: {
-                            // Help action
-                        }) {
-                            Image(systemName: "questionmark.circle")
-                                .foregroundColor(.gray)
-                                .font(.system(size: 20))
-                        }
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            withAnimation {
-                                isTyping = true
+                    if selectedTab == .art {
+                        // Help and Search
+                        HStack {
+                            Button(action: {
+                                // Help action
+                            }) {
+                                Image(systemName: "questionmark.circle")
+                                    .foregroundColor(.gray)
+                                    .font(.system(size: 20))
                             }
-                        }) {
-                            Text("Type anything...")
-                                .foregroundColor(.gray)
-                                .font(.system(size: 14))
-                                .padding(.vertical, 8)
-                                .padding(.horizontal, 16)
-                                .background(Color(.systemGray6))
-                                .cornerRadius(15)
-                        }
-                    }
-                    .padding()
-                    
-                    // Artwork Cards
-                    ScrollView {
-                        VStack(spacing: 16) {
-                            ForEach(artworks) { artwork in
-                                ArtworkCardView(artwork: artwork)
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                withAnimation {
+                                    isTyping = true
+                                }
+                            }) {
+                                Text("Type anything...")
+                                    .foregroundColor(.gray)
+                                    .font(.system(size: 14))
+                                    .padding(.vertical, 8)
+                                    .padding(.horizontal, 16)
+                                    .background(Color(.systemGray6))
+                                    .cornerRadius(15)
                             }
                         }
-                        .padding(.horizontal)
+                        .padding()
+                        
+                        // Artwork Cards
+                        ScrollView {
+                            VStack(spacing: 24) {
+                                ForEach(artworks) { artwork in
+                                    NavigationLink(
+                                        destination: ArtworkDetailView(artwork: artwork),
+                                        tag: artwork,
+                                        selection: $selectedArtwork
+                                    ) {
+                                        ArtworkCardView(artwork: artwork)
+                                            .padding(.horizontal, 16)
+                                            .onTapGesture {
+                                                selectedArtwork = artwork
+                                            }
+                                    }
+                                    .buttonStyle(PlainButtonStyle())
+                                }
+                            }
+                            .padding(.vertical, 8)
+                        }
+                    } else {
+                        // Life Updates Tab Content - using the content view without duplicating UI elements
+                        LifeUpdatesContentView()
                     }
                     
                     Spacer()
                     
                     // Tab Bar
                     HStack(spacing: 0) {
-                        TabBarButton(icon: "house.fill", isSelected: true)
-                        TabBarButton(icon: "envelope", isSelected: false)
-                        TabBarButton(icon: "person", isSelected: false)
+                        TabBarButton(icon: "house.fill", text: "Art", isSelected: true)
+                        TabBarButton(icon: "envelope", text: "Message", isSelected: false)
+                        TabBarButton(icon: "person", text: "Profile", isSelected: false)
                     }
+                    .padding(.top, 8)
                     .padding(.bottom, 20)
                 }
                 
@@ -143,14 +161,29 @@ struct TabButton: View {
 // Tab Bar Button Component
 struct TabBarButton: View {
     let icon: String
+    let text: String
     let isSelected: Bool
+    
+    init(icon: String, text: String = "", isSelected: Bool = false) {
+        self.icon = icon
+        self.text = text
+        self.isSelected = isSelected
+    }
     
     var body: some View {
         Button(action: {}) {
-            Image(systemName: icon)
-                .font(.system(size: 20))
-                .foregroundColor(isSelected ? .black : .gray)
-                .frame(maxWidth: .infinity)
+            VStack(spacing: 4) {
+                Image(systemName: icon)
+                    .font(.system(size: 20))
+                    .foregroundColor(isSelected ? .black : .gray)
+                
+                if !text.isEmpty {
+                    Text(text)
+                        .font(.system(size: 12))
+                        .foregroundColor(isSelected ? .black : .gray)
+                }
+            }
+            .frame(maxWidth: .infinity)
         }
     }
 }
