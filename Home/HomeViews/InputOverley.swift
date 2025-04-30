@@ -1,18 +1,70 @@
-//
-//  InputOverley.swift
-//  tart_prototype
-//
-//  Created by ZhengXian Lin on 4/29/25.
-//
-
 import SwiftUI
 
-struct InputOverley: View {
+struct InputOverlay: View {
+    @Binding var isVisible: Bool
+    @Binding var inputText: String
+    @Binding var showBackButton: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            // Semi-transparent background
+            Color.black.opacity(0.3)
+                .ignoresSafeArea()
+                .onTapGesture {
+                    // Dismiss overlay when tapping outside
+                    withAnimation {
+                        isVisible = false
+                    }
+                }
+            
+            // Input card
+            VStack {
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Type Anything...")
+                        .font(.system(size: 16, weight: .medium))
+                        .padding(.top, 8)
+                    
+                    TextField("How you are feeling? Artists you look for?", text: $inputText)
+                        .font(.system(size: 16))
+                    
+                    HStack {
+                        Spacer()
+                        
+                        Button(action: {
+                            if !inputText.isEmpty {
+                                withAnimation {
+                                    isVisible = false
+                                    showBackButton = true
+                                }
+                            }
+                        }) {
+                            Image(systemName: "arrow.turn.up.right")
+                                .foregroundColor(.gray)
+                                .font(.system(size: 16))
+                                .padding(8)
+                        }
+                    }
+                }
+                .padding()
+                .background(Color.white)
+                .cornerRadius(15)
+                .shadow(color: Color.black.opacity(0.1), radius: 10)
+                .padding(.horizontal, 20)
+            }
+        }
     }
 }
 
-#Preview {
-    InputOverley()
+struct InputOverlay_Previews: PreviewProvider {
+    static var previews: some View {
+        @State var isVisible = true
+        @State var inputText = ""
+        @State var showBackButton = false
+        
+        return InputOverlay(
+            isVisible: $isVisible,
+            inputText: $inputText,
+            showBackButton: $showBackButton
+        )
+    }
 }
