@@ -123,7 +123,7 @@ struct ArtworkDetailView: View {
                     
                     HStack(spacing: 12) { // Increased spacing
                         // Artist profile picture
-                        RoundedRectangle(cornerRadius: 8)
+                        Circle()
                             .fill(Color.gray.opacity(0.3))
                             .frame(width: 44, height: 44)
                             .overlay(
@@ -172,7 +172,7 @@ struct ArtworkDetailView: View {
                 HStack(alignment: .top) {
                     // Avatar with green background
                     ZStack {
-                        RoundedRectangle(cornerRadius: 8)
+                        Circle()
                             .fill(Color.green.opacity(0.2))
                             .frame(width: 38, height: 38)
                         

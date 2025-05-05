@@ -7,6 +7,7 @@ struct HomeView: View {
     @State private var showingBackButton: Bool = false
     @State private var artworks = ArtworkData.samples
     @State private var selectedArtwork: Artwork? = nil
+    @State private var selectedAppTab: AppTab = .art
     
     enum Tab {
         case art, lifeUpdates
@@ -112,14 +113,8 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    // Tab Bar
-                    HStack(spacing: 0) {
-                        TabBarButton(icon: "house.fill", text: "Art", isSelected: true)
-                        TabBarButton(icon: "envelope", text: "Message", isSelected: false)
-                        TabBarButton(icon: "person", text: "Profile", isSelected: false)
-                    }
-                    .padding(.top, 8)
-                    .padding(.bottom, 20)
+                    // Using the shared TabBarView component
+                    TabBarView(selectedTab: $selectedAppTab)
                 }
                 
                 // Typing Overlay
@@ -152,36 +147,6 @@ struct TabButton: View {
                 Rectangle()
                     .frame(height: 1)
                     .foregroundColor(isSelected ? .black : .clear)
-            }
-            .frame(maxWidth: .infinity)
-        }
-    }
-}
-
-// Tab Bar Button Component
-struct TabBarButton: View {
-    let icon: String
-    let text: String
-    let isSelected: Bool
-    
-    init(icon: String, text: String = "", isSelected: Bool = false) {
-        self.icon = icon
-        self.text = text
-        self.isSelected = isSelected
-    }
-    
-    var body: some View {
-        Button(action: {}) {
-            VStack(spacing: 4) {
-                Image(systemName: icon)
-                    .font(.system(size: 20))
-                    .foregroundColor(isSelected ? .black : .gray)
-                
-                if !text.isEmpty {
-                    Text(text)
-                        .font(.system(size: 12))
-                        .foregroundColor(isSelected ? .black : .gray)
-                }
             }
             .frame(maxWidth: .infinity)
         }
