@@ -4,6 +4,8 @@ import SwiftUI
 struct MessageView: View {
     @ObservedObject var viewModel: MessageViewModel
     @State private var navigateToChatDetail: MessagePreview?
+    @State private var showFollowers: Bool = false
+    @State private var showCommentsMentions: Bool = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -32,37 +34,48 @@ struct MessageView: View {
             // Categories
             HStack(spacing: 0) {
                 Spacer()
-                VStack(spacing: 8) {
-                    ZStack {
-                        Circle()
-                            .fill(Color(UIColor.systemBlue).opacity(0.2))
-                            .frame(width: 50, height: 50)
-                        
-                        Image(systemName: "link")
-                            .font(.system(size: 20))
-                            .foregroundColor(Color(UIColor.systemBlue))
+                
+                // New Followers button
+                Button(action: {
+                    showFollowers = true
+                }) {
+                    VStack(spacing: 8) {
+                        ZStack {
+                            Circle()
+                                .fill(Color(UIColor.systemBlue).opacity(0.2))
+                                .frame(width: 50, height: 50)
+                            
+                            Image(systemName: "link")
+                                .font(.system(size: 20))
+                                .foregroundColor(Color(UIColor.systemBlue))
+                        }
+                        Text("New Followers")
+                            .font(.system(size: 12))
+                            .foregroundColor(.black)
                     }
-                    Text("New Followers")
-                        .font(.system(size: 12))
-                        .foregroundColor(.black)
                 }
                 .frame(maxWidth: .infinity)
                 
                 Spacer()
                 
-                VStack(spacing: 8) {
-                    ZStack {
-                        Circle()
-                            .fill(Color.green.opacity(0.2))
-                            .frame(width: 50, height: 50)
-                        
-                        Image(systemName: "bubble.right")
-                            .font(.system(size: 20))
-                            .foregroundColor(.green)
+                // Comments & Mentions button
+                Button(action: {
+                    showCommentsMentions = true
+                }) {
+                    VStack(spacing: 8) {
+                        ZStack {
+                            Circle()
+                                .fill(Color.green.opacity(0.2))
+                                .frame(width: 50, height: 50)
+                            
+                            Image(systemName: "bubble.right")
+                                .font(.system(size: 20))
+                                .foregroundColor(.green)
+                        }
+                        Text("Comments & @")
+                            .font(.system(size: 12))
+                            .foregroundColor(.black)
                     }
-                    Text("Comments & @")
-                        .font(.system(size: 12))
-                        .foregroundColor(.black)
                 }
                 .frame(maxWidth: .infinity)
                 
@@ -93,18 +106,37 @@ struct MessageView: View {
         }
         .background(Color.white)
         .navigationBarHidden(true)
-        // Navigation link is hidden and triggered programmatically
+        // Navigation links in the background
         .background(
-            NavigationLink(
-                destination: navigateToChatDetail.map { conversation in
-                    ChatDetailView(viewModel: viewModel, conversation: conversation)
-                },
-                isActive: Binding(
-                    get: { navigateToChatDetail != nil },
-                    set: { if !$0 { navigateToChatDetail = nil } }
-                )
-            ) {
-                EmptyView()
+            Group {
+                // Chat detail navigation
+                NavigationLink(
+                    destination: navigateToChatDetail.map { conversation in
+                        ChatDetailView(viewModel: viewModel, conversation: conversation)
+                    },
+                    isActive: Binding(
+                        get: { navigateToChatDetail != nil },
+                        set: { if !$0 { navigateToChatDetail = nil } }
+                    )
+                ) {
+                    EmptyView()
+                }
+                
+                // Followers navigation
+                NavigationLink(
+                    destination: FollowersView(),
+                    isActive: $showFollowers
+                ) {
+                    EmptyView()
+                }
+                
+                // Comments & Mentions navigation
+                NavigationLink(
+                    destination: CommentsMentionsView(),
+                    isActive: $showCommentsMentions
+                ) {
+                    EmptyView()
+                }
             }
         )
     }

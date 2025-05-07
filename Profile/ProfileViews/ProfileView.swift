@@ -3,6 +3,7 @@ import SwiftUI
 struct ProfileView: View {
     @State private var selectedTab = 0
     @State private var showUploadView = false
+    @State private var showEditProfileView = false
     
     var body: some View {
         ZStack {
@@ -90,7 +91,7 @@ struct ProfileView: View {
                         // Right side - Action Buttons (Edit Profile and Upgrade Vertically Stacked)
                         VStack(alignment: .trailing, spacing: 8) {
                             // Edit Profile Button
-                            Button(action: {}) {
+                            Button(action: {showEditProfileView = true}) {
                                 Text("Edit Profile")
                                     .font(.system(size: 14))
                                     .foregroundColor(.black)
@@ -155,10 +156,15 @@ struct ProfileView: View {
         .fullScreenCover(isPresented: $showUploadView) {
             ArtworkUploadView()
         }
+        .fullScreenCover(isPresented: $showEditProfileView) {
+                    NavigationView {
+                        EditProfileView()
+                    }
+                }
     }
 }
 
-// Rest of the views remain the same...
+
 struct TabSelectorView: View {
     @Binding var selectedTab: Int
     
