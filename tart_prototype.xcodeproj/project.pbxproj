@@ -31,6 +31,13 @@
 		E9FD93642DC9EA7D009CF6B4 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD93632DC9EA7D009CF6B4 /* ChatDetailView.swift */; };
 		E9FD93672DC9EAB9009CF6B4 /* MessageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD93662DC9EAB9009CF6B4 /* MessageModels.swift */; };
 		E9FD936B2DC9FA41009CF6B4 /* ArtworkUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD936A2DC9FA41009CF6B4 /* ArtworkUploadView.swift */; };
+		F17BB9142DCC5134004FE7D9 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BB9102DCC5134004FE7D9 /* AuthenticationService.swift */; };
+		F17BB9152DCC5134004FE7D9 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BB9112DCC5134004FE7D9 /* AuthManager.swift */; };
+		F17BB9162DCC5134004FE7D9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BB9122DCC5134004FE7D9 /* User.swift */; };
+		F17BB92A2DCC544C004FE7D9 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BB9262DCC544C004FE7D9 /* Artwork.swift */; };
+		F17BB92B2DCC544C004FE7D9 /* LifeUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BB9292DCC544C004FE7D9 /* LifeUpdate.swift */; };
+		F17BB92C2DCC544C004FE7D9 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BB9282DCC544C004FE7D9 /* HomeService.swift */; };
+		F17BB92D2DCC544C004FE7D9 /* HomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BB9272DCC544C004FE7D9 /* HomeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +66,13 @@
 		E9FD93632DC9EA7D009CF6B4 /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
 		E9FD93662DC9EAB9009CF6B4 /* MessageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModels.swift; sourceTree = "<group>"; };
 		E9FD936A2DC9FA41009CF6B4 /* ArtworkUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkUploadView.swift; sourceTree = "<group>"; };
+		F17BB9102DCC5134004FE7D9 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		F17BB9112DCC5134004FE7D9 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		F17BB9122DCC5134004FE7D9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F17BB9262DCC544C004FE7D9 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
+		F17BB9272DCC544C004FE7D9 /* HomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManager.swift; sourceTree = "<group>"; };
+		F17BB9282DCC544C004FE7D9 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		F17BB9292DCC544C004FE7D9 /* LifeUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeUpdate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +138,7 @@
 			children = (
 				E97BB2352DBFBB0F00B28FDF /* tart_prototypeApp.swift */,
 				E97BB2372DBFBB0F00B28FDF /* ContentView.swift */,
+				F17BB9132DCC5134004FE7D9 /* Models */,
 				E97BB2392DBFBB1000B28FDF /* Assets.xcassets */,
 				E97BB23B2DBFBB1000B28FDF /* Preview Content */,
 			);
@@ -240,6 +255,20 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		F17BB9132DCC5134004FE7D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F17BB9102DCC5134004FE7D9 /* AuthenticationService.swift */,
+				F17BB9112DCC5134004FE7D9 /* AuthManager.swift */,
+				F17BB9122DCC5134004FE7D9 /* User.swift */,
+				F17BB9262DCC544C004FE7D9 /* Artwork.swift */,
+				F17BB9272DCC544C004FE7D9 /* HomeManager.swift */,
+				F17BB9282DCC544C004FE7D9 /* HomeService.swift */,
+				F17BB9292DCC544C004FE7D9 /* LifeUpdate.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -317,6 +346,9 @@
 				E9FD935E2DC9EA25009CF6B4 /* ComponentsLibrary.swift in Sources */,
 				E9FD936B2DC9FA41009CF6B4 /* ArtworkUploadView.swift in Sources */,
 				E9DEB6B22DC10393006D502D /* InputOverley.swift in Sources */,
+				F17BB9142DCC5134004FE7D9 /* AuthenticationService.swift in Sources */,
+				F17BB9152DCC5134004FE7D9 /* AuthManager.swift in Sources */,
+				F17BB9162DCC5134004FE7D9 /* User.swift in Sources */,
 				E9EF52C22DC22F0900FD480A /* ArtworkDetailView.swift in Sources */,
 				E9FD93602DC9EA35009CF6B4 /* ImagePickerView.swift in Sources */,
 				E9E6F1442DCB37E90015BE6E /* CommentsMentionsView.swift in Sources */,
@@ -328,6 +360,10 @@
 				E9FD93622DC9EA60009CF6B4 /* MessageView.swift in Sources */,
 				E902704F2DC8BB5100469B3B /* ProfileView.swift in Sources */,
 				E9EF52C62DC26F3400FD480A /* LifeUpdateDetailView.swift in Sources */,
+				F17BB92A2DCC544C004FE7D9 /* Artwork.swift in Sources */,
+				F17BB92B2DCC544C004FE7D9 /* LifeUpdate.swift in Sources */,
+				F17BB92C2DCC544C004FE7D9 /* HomeService.swift in Sources */,
+				F17BB92D2DCC544C004FE7D9 /* HomeManager.swift in Sources */,
 				E9DEB6AE2DC102DF006D502D /* ArtworkModel.swift in Sources */,
 				E9FD93642DC9EA7D009CF6B4 /* ChatDetailView.swift in Sources */,
 				E9EF52C42DC22F5400FD480A /* LifeUpdatesView.swift in Sources */,
