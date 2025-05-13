@@ -60,8 +60,6 @@ struct ArtworkCardView: View {
 
 struct ArtworkCardView_Previews: PreviewProvider {
     static var previews: some View {
-        ArtworkCardView(artwork: ArtworkData.samples[0])
-            .previewLayout(.sizeThatFits)
-            .padding()
+        ArtworkCardView(artwork: MockData.artworks[0])
     }
 }

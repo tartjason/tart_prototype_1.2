@@ -1,13 +1,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var selectedTab: Tab = .art
-    @State private var isTyping: Bool = false
-    @State private var inputText: String = ""
-    @State private var showingBackButton: Bool = false
-    @State private var artworks = ArtworkData.samples
-    @State private var selectedArtwork: Artwork? = nil
-    @State private var selectedAppTab: AppTab = .art
+    @StateObject private var viewModel = HomeViewModel()
     
     enum Tab {
         case art, lifeUpdates
@@ -19,12 +13,9 @@ struct HomeView: View {
                 VStack(spacing: 0) {
                     // Header
                     HStack {
-                        if showingBackButton {
+                        if viewModel.showingBackButton {
                             Button(action: {
-                                withAnimation {
-                                    showingBackButton = false
-                                    inputText = ""
-                                }
+                                viewModel.clearInput()
                             }) {
                                 Image(systemName: "chevron.left")
                                     .foregroundColor(.black)
@@ -43,21 +34,17 @@ struct HomeView: View {
                     
                     // Tab Selection
                     HStack(spacing: 0) {
-                        TabButton(title: "art", isSelected: selectedTab == .art) {
-                            withAnimation {
-                                selectedTab = .art
-                            }
+                        TabButton(title: "art", isSelected: viewModel.selectedTab == .art) {
+                            viewModel.toggleTab(.art)
                         }
                         
-                        TabButton(title: "life updates", isSelected: selectedTab == .lifeUpdates) {
-                            withAnimation {
-                                selectedTab = .lifeUpdates
-                            }
+                        TabButton(title: "life updates", isSelected: viewModel.selectedTab == .lifeUpdates) {
+                            viewModel.toggleTab(.lifeUpdates)
                         }
                     }
                     .padding(.horizontal)
                     
-                    if selectedTab == .art {
+                    if viewModel.selectedTab == .art {
                         // Help and Search
                         HStack {
                             Button(action: {
@@ -71,9 +58,7 @@ struct HomeView: View {
                             Spacer()
                             
                             Button(action: {
-                                withAnimation {
-                                    isTyping = true
-                                }
+                                viewModel.showInputOverlay()
                             }) {
                                 Text("Type anything...")
                                     .foregroundColor(.gray)
@@ -89,16 +74,16 @@ struct HomeView: View {
                         // Artwork Cards
                         ScrollView {
                             VStack(spacing: 24) {
-                                ForEach(artworks) { artwork in
+                                ForEach(viewModel.homeService.artworks) { artwork in
                                     NavigationLink(
                                         destination: ArtworkDetailView(artwork: artwork),
                                         tag: artwork,
-                                        selection: $selectedArtwork
+                                        selection: $viewModel.selectedArtwork
                                     ) {
                                         ArtworkCardView(artwork: artwork)
                                             .padding(.horizontal, 16)
                                             .onTapGesture {
-                                                selectedArtwork = artwork
+                                                viewModel.selectedArtwork = artwork
                                             }
                                     }
                                     .buttonStyle(PlainButtonStyle())
@@ -107,26 +92,30 @@ struct HomeView: View {
                             .padding(.vertical, 8)
                         }
                     } else {
-                        // Life Updates Tab Content - using the content view without duplicating UI elements
+                        // Life Updates Tab Content
                         LifeUpdatesContentView()
                     }
                     
                     Spacer()
                     
                     // Using the shared TabBarView component
-                    TabBarView(selectedTab: $selectedAppTab)
+                    TabBarView(selectedTab: $viewModel.selectedAppTab)
                 }
                 
                 // Typing Overlay
-                if isTyping {
+                if viewModel.isInputOverlayVisible {
                     InputOverlay(
-                        isVisible: $isTyping,
-                        inputText: $inputText,
-                        showBackButton: $showingBackButton
+                        isVisible: $viewModel.isInputOverlayVisible,
+                        inputText: $viewModel.inputText,
+                        showBackButton: $viewModel.showingBackButton
                     )
                 }
             }
             .navigationBarHidden(true)
+        }
+        .task {
+            await viewModel.fetchArtworks()
+            await viewModel.fetchLifeUpdates()
         }
     }
 }
