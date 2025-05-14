@@ -43,6 +43,13 @@
 		F13126052DD3F33E00DD886C /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13125FE2DD3F33E00DD886C /* Artwork.swift */; };
 		F13126062DD3F33E00DD886C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13125FF2DD3F33E00DD886C /* Comment.swift */; };
 		F14BBC8C2DD3FC0B00243551 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14BBC8A2DD3FC0B00243551 /* User.swift */; };
+		F14BBC9A2DD4004600243551 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14BBC912DD4004600243551 /* EditProfileView.swift */; };
+		F14BBC9B2DD4004600243551 /* AppTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14BBC972DD4004600243551 /* AppTabBar.swift */; };
+		F14BBC9C2DD4004600243551 /* ArtworkUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14BBC902DD4004600243551 /* ArtworkUploadView.swift */; };
+		F14BBC9D2DD4004600243551 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14BBC922DD4004600243551 /* ProfileView.swift */; };
+		F14BBC9E2DD4004600243551 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14BBC942DD4004600243551 /* ProfileModel.swift */; };
+		F14BBCA12DD4013800243551 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14BBC9F2DD4013800243551 /* ProfileService.swift */; };
+		F14BBCA42DD408F100243551 /* ProfileUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14BBCA32DD408F100243551 /* ProfileUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +90,13 @@
 		F13126002DD3F33E00DD886C /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		F13126012DD3F33E00DD886C /* LifeUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeUpdate.swift; sourceTree = "<group>"; };
 		F14BBC8A2DD3FC0B00243551 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F14BBC902DD4004600243551 /* ArtworkUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkUploadView.swift; sourceTree = "<group>"; };
+		F14BBC912DD4004600243551 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		F14BBC922DD4004600243551 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		F14BBC942DD4004600243551 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		F14BBC972DD4004600243551 /* AppTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBar.swift; sourceTree = "<group>"; };
+		F14BBC9F2DD4013800243551 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		F14BBCA32DD408F100243551 /* ProfileUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +120,8 @@
 				E97BB2332DBFBB0F00B28FDF /* Products */,
 				F13125D82DD3DC4100DD886C /* Services */,
 				F14BBC892DD3F86700243551 /* Recovered References */,
+				F14BBC962DD4004600243551 /* Profile */,
+				F14BBC992DD4004600243551 /* Shared */,
 			);
 			sourceTree = "<group>";
 		};
@@ -259,6 +275,51 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F14BBC932DD4004600243551 /* ProfileViews */ = {
+			isa = PBXGroup;
+			children = (
+				F14BBC902DD4004600243551 /* ArtworkUploadView.swift */,
+				F14BBC912DD4004600243551 /* EditProfileView.swift */,
+				F14BBC922DD4004600243551 /* ProfileView.swift */,
+			);
+			path = ProfileViews;
+			sourceTree = "<group>";
+		};
+		F14BBC952DD4004600243551 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F14BBCA32DD408F100243551 /* ProfileUser.swift */,
+				F14BBC9F2DD4013800243551 /* ProfileService.swift */,
+				F14BBC942DD4004600243551 /* ProfileModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F14BBC962DD4004600243551 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F14BBC932DD4004600243551 /* ProfileViews */,
+				F14BBC952DD4004600243551 /* ViewModels */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F14BBC982DD4004600243551 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F14BBC972DD4004600243551 /* AppTabBar.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F14BBC992DD4004600243551 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F14BBC982DD4004600243551 /* Components */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -353,9 +414,15 @@
 				F13126062DD3F33E00DD886C /* Comment.swift in Sources */,
 				F13125C92DD3DBF600DD886C /* HomeViewModel.swift in Sources */,
 				F13125CA2DD3DBF600DD886C /* LifeUpdateViewModel.swift in Sources */,
+				F14BBC9A2DD4004600243551 /* EditProfileView.swift in Sources */,
+				F14BBC9B2DD4004600243551 /* AppTabBar.swift in Sources */,
+				F14BBC9C2DD4004600243551 /* ArtworkUploadView.swift in Sources */,
+				F14BBC9D2DD4004600243551 /* ProfileView.swift in Sources */,
+				F14BBC9E2DD4004600243551 /* ProfileModel.swift in Sources */,
 				E9FD93672DC9EAB9009CF6B4 /* MessageModels.swift in Sources */,
 				E9FD93622DC9EA60009CF6B4 /* MessageView.swift in Sources */,
 				F14BBC8C2DD3FC0B00243551 /* User.swift in Sources */,
+				F14BBCA42DD408F100243551 /* ProfileUser.swift in Sources */,
 				E902704F2DC8BB5100469B3B /* ProfileView.swift in Sources */,
 				E9EF52C62DC26F3400FD480A /* LifeUpdateDetailView.swift in Sources */,
 				F13125D92DD3DC4100DD886C /* AuthService.swift in Sources */,
@@ -363,6 +430,7 @@
 				F13125DB2DD3DC4100DD886C /* StorageService.swift in Sources */,
 				F13125DC2DD3DC4100DD886C /* NetworkConfig.swift in Sources */,
 				E9FD93642DC9EA7D009CF6B4 /* ChatDetailView.swift in Sources */,
+				F14BBCA12DD4013800243551 /* ProfileService.swift in Sources */,
 				E9EF52C42DC22F5400FD480A /* LifeUpdatesView.swift in Sources */,
 				E9DEB6B02DC10341006D502D /* ArtworkCardView.swift in Sources */,
 			);
