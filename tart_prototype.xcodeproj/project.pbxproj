@@ -55,6 +55,9 @@
 		F14BBC9E2DD4004600243551 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14BBC942DD4004600243551 /* ProfileModel.swift */; };
 		F14BBCA12DD4013800243551 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14BBC9F2DD4013800243551 /* ProfileService.swift */; };
 		F14BBCA42DD408F100243551 /* ProfileUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14BBCA32DD408F100243551 /* ProfileUser.swift */; };
+		F1DEF00C2DD4464F002CBDC5 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DEF0092DD4464F002CBDC5 /* LoginModel.swift */; };
+		F1DEF00D2DD4464F002CBDC5 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DEF00A2DD4464F002CBDC5 /* LoginUser.swift */; };
+		F1DEF00E2DD4464F002CBDC5 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DEF0082DD4464F002CBDC5 /* AuthError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +110,9 @@
 		F14BBC972DD4004600243551 /* AppTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBar.swift; sourceTree = "<group>"; };
 		F14BBC9F2DD4013800243551 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		F14BBCA32DD408F100243551 /* ProfileUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUser.swift; sourceTree = "<group>"; };
+		F1DEF0082DD4464F002CBDC5 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		F1DEF0092DD4464F002CBDC5 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		F1DEF00A2DD4464F002CBDC5 /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,7 @@
 		E97BB2432DBFBB2500B28FDF /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				F1DEF00B2DD4464F002CBDC5 /* LoginModels */,
 				E9C19DBF2DBFCA3500783E16 /* LoginViews */,
 			);
 			path = Login;
@@ -343,6 +350,16 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		F1DEF00B2DD4464F002CBDC5 /* LoginModels */ = {
+			isa = PBXGroup;
+			children = (
+				F1DEF0082DD4464F002CBDC5 /* AuthError.swift */,
+				F1DEF0092DD4464F002CBDC5 /* LoginModel.swift */,
+				F1DEF00A2DD4464F002CBDC5 /* LoginUser.swift */,
+			);
+			path = LoginModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -415,6 +432,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1DEF00C2DD4464F002CBDC5 /* LoginModel.swift in Sources */,
+				F1DEF00D2DD4464F002CBDC5 /* LoginUser.swift in Sources */,
+				F1DEF00E2DD4464F002CBDC5 /* AuthError.swift in Sources */,
 				E9E6F1462DCB3B0D0015BE6E /* EditProfileView.swift in Sources */,
 				F1333F802DD43235005FA801 /* ComponentsLibrary.swift in Sources */,
 				F1333F812DD43235005FA801 /* ImagePickerView.swift in Sources */,
