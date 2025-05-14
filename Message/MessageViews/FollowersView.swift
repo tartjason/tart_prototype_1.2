@@ -1,14 +1,8 @@
 import SwiftUI
 
 struct FollowersView: View {
+    @ObservedObject var viewModel: MessageViewModel
     @Environment(\.presentationMode) var presentationMode
-    
-    // Sample data - in a real app, this would come from a view model
-    let followers: [Follower] = [
-        Follower(id: 1, username: "SmartKiwi", avatar: "kiwi_avatar", timeText: "3 hrs ago", isFollowing: false),
-        Follower(id: 2, username: "SmartKiwi", avatar: "kiwi_avatar", timeText: "09-30", isFollowing: false),
-        Follower(id: 3, username: "SmartKiwi", avatar: "kiwi_avatar", timeText: "09-30", isFollowing: false)
-    ]
     
     var body: some View {
         VStack(spacing: 0) {
@@ -34,7 +28,7 @@ struct FollowersView: View {
             // Followers list
             ScrollView {
                 LazyVStack(spacing: 0) {
-                    ForEach(followers) { follower in
+                    ForEach(viewModel.followers) { follower in
                         FollowerRow(follower: follower)
                         
                         Divider()
@@ -58,7 +52,6 @@ struct FollowerRow: View {
     
     var body: some View {
         HStack(spacing: 12) {
-            // Avatar
             Image(follower.avatar)
                 .resizable()
                 .scaledToFit()
@@ -66,7 +59,6 @@ struct FollowerRow: View {
                 .clipShape(Circle())
                 .background(Circle().fill(Color.gray.opacity(0.1)))
             
-            // User info
             VStack(alignment: .leading, spacing: 2) {
                 Text(follower.username)
                     .font(.system(size: 16, weight: .medium))
@@ -79,7 +71,6 @@ struct FollowerRow: View {
             
             Spacer()
             
-            // Follow button
             Button(action: {
                 isFollowing.toggle()
             }) {
@@ -114,7 +105,7 @@ struct Follower: Identifiable {
 struct FollowersView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            FollowersView()
+            FollowersView(viewModel: MessageViewModel())
         }
     }
 }

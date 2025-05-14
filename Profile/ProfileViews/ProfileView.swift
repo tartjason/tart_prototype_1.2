@@ -384,7 +384,7 @@ struct LifeUpdatesView: View {
                     
                     Image(systemName: "plus")
                         .font(.system(size: 20, weight: .thin))
-                        .foregroundColor(Color(hex: "5c5c5c"))
+                        .foregroundColor(.gray)
                 }
             }
             .padding(.trailing, 20)
@@ -497,7 +497,7 @@ struct GalleryView: View {
                     
                     Image(systemName: "plus")
                         .font(.system(size: 20, weight: .thin))
-                        .foregroundColor(Color(hex: "5c5c5c"))
+                        .foregroundColor(.gray)
                 }
             }
             .padding(.trailing, 20)

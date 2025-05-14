@@ -1,12 +1,23 @@
 import SwiftUI
 import UIKit
 
+// MARK: - Message Event
+enum MessageEvent: String {
+    case messageSent = "message_sent"
+    case messageReceived = "message_received"
+    case messageRead = "message_read"
+    case conversationOpened = "conversation_opened"
+    case searchPerformed = "search_performed"
+}
+
 class MessageViewModel: ObservableObject {
     // MARK: - Published Properties
     @Published var conversations: [MessagePreview] = []
     @Published var chatMessages: [Int: [ChatMessage]] = [:]
     @Published var settings: MessageSettings
     @Published var statistics: MessageStatistics?
+    @Published var followers: [Follower] = []
+    @Published var comments: [CommentItem] = []
     
     // MARK: - Services
     private let messageService: MessageService
@@ -26,6 +37,20 @@ class MessageViewModel: ObservableObject {
         self.settingsManager = MessageSettingsManager()
         self.settings = settingsManager.getCurrentSettings()
         
+        // Initialize with sample data
+        self.comments = [
+            CommentItem(id: 1, username: "SmartKiwi", avatar: "kiwi_avatar", workTitle: "your work", timeText: "3hrs ago", commentText: "I agree.", artworkImage: "artwork_sample"),
+            CommentItem(id: 2, username: "SmartKiwi", avatar: "kiwi_avatar", workTitle: "you", timeText: "3hrs ago", commentText: "I agree.", artworkImage: nil)
+        ]
+        
+        // Initialize with sample chat messages
+        self.chatMessages = [
+            1: [
+                ChatMessage(id: 1, isFromMe: false, text: "Hello, thanks for connecting with me!", timestamp: Date()),
+                ChatMessage(id: 2, isFromMe: true, text: "I really enjoyed your work \"Scissor\". It reminded me of my grandpa.", timestamp: Date())
+            ]
+        ]
+        
         // Load initial data
         Task {
             await loadInitialData()
@@ -33,6 +58,10 @@ class MessageViewModel: ObservableObject {
     }
     
     // MARK: - Public Methods
+    func getMessages(for conversationId: Int) -> [ChatMessage] {
+        return chatMessages[conversationId] ?? []
+    }
+    
     func loadInitialData() async {
         do {
             // Fetch conversations
@@ -52,8 +81,35 @@ class MessageViewModel: ObservableObject {
             await MainActor.run {
                 self.statistics = stats
             }
+            
+            // Load followers
+            await loadFollowers()
+            
+            // Load comments
+            await loadComments()
         } catch {
             print("Error loading initial data: \(error)")
+        }
+    }
+    
+    private func loadFollowers() async {
+        // TODO: 实现从服务器获取关注者数据
+        await MainActor.run {
+            self.followers = [
+                Follower(id: 1, username: "SmartKiwi", avatar: "kiwi_avatar", timeText: "3 hrs ago", isFollowing: false),
+                Follower(id: 2, username: "SmartKiwi", avatar: "kiwi_avatar", timeText: "09-30", isFollowing: false),
+                Follower(id: 3, username: "SmartKiwi", avatar: "kiwi_avatar", timeText: "09-30", isFollowing: false)
+            ]
+        }
+    }
+    
+    private func loadComments() async {
+        // TODO: 实现从服务器获取评论数据
+        await MainActor.run {
+            self.comments = [
+                CommentItem(id: 1, username: "SmartKiwi", avatar: "kiwi_avatar", workTitle: "your work", timeText: "3hrs ago", commentText: "I agree.", artworkImage: "artwork_sample"),
+                CommentItem(id: 2, username: "SmartKiwi", avatar: "kiwi_avatar", workTitle: "you", timeText: "3hrs ago", commentText: "I agree.", artworkImage: nil)
+            ]
         }
     }
     
@@ -87,7 +143,7 @@ class MessageViewModel: ObservableObject {
             cache.cacheMessages(chatMessages[conversationId] ?? [], for: conversationId)
             
             // Track the event
-            analytics.trackMessageEvent(MessageEvent.messageSent)
+            analytics.trackMessageEvent(.messageSent)
         } catch {
             print("Error sending message: \(error)")
         }
@@ -131,15 +187,6 @@ class MessageViewModel: ObservableObject {
         formatter.dateFormat = "HH:mm"
         return formatter.string(from: Date())
     }
-}
-
-// MARK: - Message Event
-struct MessageEvent {
-    static let messageSent = "message_sent"
-    static let messageReceived = "message_received"
-    static let messageRead = "message_read"
-    static let conversationOpened = "conversation_opened"
-    static let searchPerformed = "search_performed"
 }
 
 // MARK: - Message Report

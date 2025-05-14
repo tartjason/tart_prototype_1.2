@@ -112,7 +112,7 @@ struct MessageView: View {
                 // Chat detail navigation
                 NavigationLink(
                     destination: navigateToChatDetail.map { conversation in
-                        ChatDetailView(viewModel: viewModel, conversation: conversation)
+                        ChatDetailView(viewModel: viewModel, conversationId: conversation.id)
                     },
                     isActive: Binding(
                         get: { navigateToChatDetail != nil },
@@ -124,7 +124,7 @@ struct MessageView: View {
                 
                 // Followers navigation
                 NavigationLink(
-                    destination: FollowersView(),
+                    destination: FollowersView(viewModel: viewModel),
                     isActive: $showFollowers
                 ) {
                     EmptyView()
@@ -132,7 +132,7 @@ struct MessageView: View {
                 
                 // Comments & Mentions navigation
                 NavigationLink(
-                    destination: CommentsMentionsView(),
+                    destination: CommentsMentionsView(viewModel: viewModel),
                     isActive: $showCommentsMentions
                 ) {
                     EmptyView()

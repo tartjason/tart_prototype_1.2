@@ -123,7 +123,14 @@ class MessageAnalytics {
     
     func generateReport() async throws -> MessageReport {
         // TODO: 实现报告生成
-        return MessageReport()
+        return MessageReport(
+            date: Date(),
+            totalMessages: 0,
+            activeUsers: 0,
+            averageResponseTime: 0,
+            mostActiveHours: [],
+            messageTypes: [:]
+        )
     }
 }
 

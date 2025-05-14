@@ -1,13 +1,8 @@
 import SwiftUI
 
 struct CommentsMentionsView: View {
+    @ObservedObject var viewModel: MessageViewModel
     @Environment(\.presentationMode) var presentationMode
-    
-    // Sample data - in a real app, this would come from a view model
-    let comments: [CommentItem] = [
-        CommentItem(id: 1, username: "SmartKiwi", avatar: "kiwi_avatar", workTitle: "your work", timeText: "3hrs ago", commentText: "I agree.", artworkImage: "artwork_sample"),
-        CommentItem(id: 2, username: "SmartKiwi", avatar: "kiwi_avatar", workTitle: "you", timeText: "3hrs ago", commentText: "I agree.", artworkImage: nil)
-    ]
     
     var body: some View {
         VStack(spacing: 0) {
@@ -33,7 +28,7 @@ struct CommentsMentionsView: View {
             // Comments list
             ScrollView {
                 LazyVStack(spacing: 24) {
-                    ForEach(comments) { comment in
+                    ForEach(viewModel.comments) { comment in
                         CommentRow(comment: comment)
                     }
                 }
@@ -113,20 +108,10 @@ struct CommentRow: View {
     }
 }
 
-struct CommentItem: Identifiable {
-    let id: Int
-    let username: String
-    let avatar: String
-    let workTitle: String
-    let timeText: String
-    let commentText: String
-    let artworkImage: String?
-}
-
 struct CommentsMentionsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CommentsMentionsView()
+            CommentsMentionsView(viewModel: MessageViewModel())
         }
     }
 }
