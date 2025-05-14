@@ -1,13 +1,13 @@
 import SwiftUI
 
 struct LifeUpdatesContentView: View {
-    @State private var selectedUpdate: Update? = nil
-    let updates = UpdatesData.samples
+    @StateObject private var viewModel = HomeViewModel()
+    @State private var selectedUpdate: LifeUpdate? = nil
     
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
-                ForEach(updates) { update in
+                ForEach(viewModel.homeService.lifeUpdates) { update in
                     NavigationLink(
                         destination: LifeUpdateDetailView(update: update),
                         tag: update,
@@ -20,7 +20,7 @@ struct LifeUpdatesContentView: View {
                     }
                     .buttonStyle(PlainButtonStyle())
                     
-                    if update.id != updates.last?.id {
+                    if update.id != viewModel.homeService.lifeUpdates.last?.id {
                         Divider()
                             .padding(.horizontal)
                     }
@@ -32,12 +32,12 @@ struct LifeUpdatesContentView: View {
 
 // Update Card View
 struct UpdateCardView: View {
-    let update: Update
+    let update: LifeUpdate
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            if !update.hasImage {
-                // Text-only update layout (Vicky's case)
+            if update.imageURLs == nil || update.imageURLs!.isEmpty {
+                // Text-only update layout
                 HStack(alignment: .top, spacing: 12) {
                     // Username on the left
                     Text(update.username)
@@ -59,18 +59,18 @@ struct UpdateCardView: View {
                     .padding(.top, 16)
                 
                 // Image with more margins and 4:3 aspect ratio
-                ZStack {
-                    if update.imageName == "turtle-image" {
+                if let firstImageURL = update.imageURLs?.first {
+                    AsyncImage(url: URL(string: firstImageURL)) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(4/3, contentMode: .fit)
+                    } placeholder: {
                         Rectangle()
-                            .fill(Color.blue.opacity(0.3))
-                            .aspectRatio(4/3, contentMode: .fit) // Changed to 4:3
-                    } else if update.imageName == "watermelon-image" {
-                        Rectangle()
-                            .fill(Color.red.opacity(0.3))
-                            .aspectRatio(4/3, contentMode: .fit) // Changed to 4:3
+                            .fill(Color.gray.opacity(0.3))
+                            .aspectRatio(4/3, contentMode: .fit)
                     }
+                    .padding(.horizontal, 24)
                 }
-                .padding(.horizontal, 24) // Increased horizontal margins
                 
                 // Caption below image
                 Text(update.content)
@@ -80,7 +80,7 @@ struct UpdateCardView: View {
             
             // Time and Navigate Arrow
             HStack {
-                Text(update.timeAgo)
+                Text(update.createdAt.timeAgoDisplay())
                     .font(.system(size: 14, weight: .light))
                     .foregroundColor(.gray)
                 

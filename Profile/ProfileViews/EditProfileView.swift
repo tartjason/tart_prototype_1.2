@@ -2,13 +2,26 @@ import SwiftUI
 
 struct EditProfileView: View {
     @Environment(\.dismiss) var dismiss
-    @State private var name = "Jason"
-    @State private var username = "jajasoso"
-    @State private var bio = ""
-    @State private var phoneNumber = "+1111"
-    @State private var email = "jason.soltart@gmail.com"
+    @ObservedObject var model: ProfileModel
+    @State private var name: String
+    @State private var username: String
+    @State private var bio: String
+    @State private var phoneNumber: String
+    @State private var email: String
     @State private var gender = "Male"
     @State private var birthdate = "02/18/2000"
+    @State private var isSaving = false
+    @State private var showError = false
+    @State private var errorMessage = ""
+    
+    init(model: ProfileModel) {
+        self.model = model
+        _name = State(initialValue: model.user.name)
+        _username = State(initialValue: model.user.username)
+        _bio = State(initialValue: model.user.bio)
+        _phoneNumber = State(initialValue: model.user.phoneNumber)
+        _email = State(initialValue: model.user.email)
+    }
     
     var body: some View {
         ScrollView {
@@ -28,6 +41,13 @@ struct EditProfileView: View {
                         .foregroundColor(.black)
                     
                     Spacer()
+                    
+                    Button(action: saveProfile) {
+                        Text("Save")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(.blue)
+                    }
+                    .disabled(isSaving)
                 }
                 .padding(.horizontal, 16)
                 .padding(.top, 10)
@@ -250,11 +270,37 @@ struct EditProfileView: View {
             }
         }
         .navigationBarHidden(true)
+        .alert("Error", isPresented: $showError) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(errorMessage)
+        }
+    }
+    
+    private func saveProfile() {
+        isSaving = true
+        
+        Task {
+            do {
+                try await model.updateProfile(
+                    name: name,
+                    username: username,
+                    bio: bio,
+                    phoneNumber: phoneNumber,
+                    email: email
+                )
+                dismiss()
+            } catch {
+                errorMessage = error.localizedDescription
+                showError = true
+            }
+            isSaving = false
+        }
     }
 }
 
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileView()
+        EditProfileView(model: ProfileModel())
     }
 }

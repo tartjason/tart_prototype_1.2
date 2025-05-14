@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @StateObject private var model = ProfileModel()
     @State private var selectedTab = 0
     @State private var showUploadView = false
     @State private var showEditProfileView = false
@@ -74,11 +75,11 @@ struct ProfileView: View {
                             
                             // Name and ID
                             VStack(alignment: .leading, spacing: 3) {
-                                Text("Jason")
+                                Text(model.user.name)
                                     .font(.system(size: 20, weight: .medium))
                                     .foregroundColor(.black)
                                 
-                                Text("ld.jajasoso")
+                                Text(model.user.username)
                                     .font(.system(size: 14))
                                     .foregroundColor(.gray)
                             }
@@ -120,7 +121,7 @@ struct ProfileView: View {
                     
                     // Bottom row with Connections and Register link
                     HStack(alignment: .center) {
-                        Text("6 Connections")
+                        Text("\(model.user.connections) Connections")
                             .font(.system(size: 14))
                             .foregroundColor(.gray)
                             .padding(.leading, 20)
@@ -147,23 +148,30 @@ struct ProfileView: View {
                 if selectedTab == 0 {
                     CollectionView()
                 } else if selectedTab == 1 {
-                    LifeUpdatesView()
+                    LifeUpdatesView(lifeUpdates: model.lifeUpdates)
                 } else {
-                    GalleryView(showUploadView: $showUploadView)
+                    GalleryView(showUploadView: $showUploadView, artworks: model.artworks)
                 }
             }
         }
         .fullScreenCover(isPresented: $showUploadView) {
-            ArtworkUploadView()
+            ArtworkUploadView(model: model)
         }
         .fullScreenCover(isPresented: $showEditProfileView) {
-                    NavigationView {
-                        EditProfileView()
-                    }
-                }
+            NavigationView {
+                EditProfileView(model: model)
+            }
+        }
+        .task {
+            do {
+                try await model.fetchUserArtworks()
+                try await model.fetchUserLifeUpdates()
+            } catch {
+                print("Error fetching data: \(error)")
+            }
+        }
     }
 }
-
 
 struct TabSelectorView: View {
     @Binding var selectedTab: Int
@@ -338,40 +346,18 @@ struct CollectionCard: View {
 }
 
 struct LifeUpdatesView: View {
+    let lifeUpdates: [LifeUpdate]
+    
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             ScrollView {
-                VStack(spacing: 0) {
-                    // Image grid - precisely matching your screenshots
-                    VStack(spacing: 1) {
-                        // First row
-                        HStack(spacing: 1) {
-                            // Left - Single large image
-                            LifeUpdateCell(index: 0, isLarge: true)
-                            
-                            // Right column - 4 smaller images in grid
-                            VStack(spacing: 1) {
-                                HStack(spacing: 1) {
-                                    LifeUpdateCell(index: 1)
-                                    LifeUpdateCell(index: 2)
-                                }
-                                HStack(spacing: 1) {
-                                    LifeUpdateCell(index: 3)
-                                    LifeUpdateCell(index: 4)
-                                }
-                            }
-                        }
-                        
-                        // Second row - 2 images
-                        HStack(spacing: 1) {
-                            LifeUpdateCell(index: 5)
-                            LifeUpdateCell(index: 6)
-                        }
+                LazyVGrid(columns: [
+                    GridItem(.flexible()),
+                    GridItem(.flexible())
+                ], spacing: 1) {
+                    ForEach(lifeUpdates) { update in
+                        LifeUpdateCell(update: update)
                     }
-                    .padding(.horizontal, 0)
-                    .padding(.top, 0)
-                    
-                    Spacer()
                 }
             }
             
@@ -384,7 +370,7 @@ struct LifeUpdatesView: View {
                     
                     Image(systemName: "plus")
                         .font(.system(size: 20, weight: .thin))
-                        .foregroundColor(Color(hex: "5c5c5c"))
+                        .foregroundColor(.gray)
                 }
             }
             .padding(.trailing, 20)
@@ -394,97 +380,49 @@ struct LifeUpdatesView: View {
 }
 
 struct LifeUpdateCell: View {
-    let index: Int
-    var isLarge: Bool = false
+    let update: LifeUpdate
     
     var body: some View {
-        let colors: [(Color, Color)] = [
-            (.green, .blue),
-            (.orange, .yellow),
-            (.purple, .blue),
-            (.red, .pink),
-            (.blue, .green),
-            (.pink, .red),
-            (.yellow, .orange)
-        ]
-        
-        Rectangle()
-            .fill(
-                LinearGradient(
-                    colors: [
-                        colors[index % colors.count].0.opacity(0.7),
-                        colors[index % colors.count].1.opacity(0.7)
-                    ],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-            )
-            .overlay(
-                // Art content based on screenshot
-                Group {
-                    if index == 0 {
-                        // Green garden scene (large)
-                        VStack {
-                            HStack(spacing: 5) {
-                                ForEach(0..<3) { _ in
-                                    Circle()
-                                        .fill(Color.white.opacity(0.8))
-                                        .frame(width: 15, height: 15)
-                                }
-                            }
-                            
-                            Rectangle()
-                                .fill(Color.brown)
-                                .frame(width: 8, height: 40)
-                            
-                            Circle()
-                                .fill(Color.green)
-                                .frame(width: 40, height: 40)
-                        }
-                    } else if index == 2 {
-                        // Purple pattern
-                        VStack(spacing: 2) {
-                            ForEach(0..<8) { _ in
-                                Rectangle()
-                                    .fill(Color.white.opacity(0.6))
-                                    .frame(height: 4)
-                            }
-                        }
-                    } else if index == 3 {
-                        // Character on red background
-                        VStack {
-                            Circle()
-                                .fill(Color.red)
-                                .frame(width: 30, height: 30)
-                            
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(Color.brown)
-                                .frame(width: 25, height: 15)
-                        }
-                    } else {
-                        // Default placeholder
-                        Image(systemName: "photo")
-                            .foregroundColor(.white.opacity(0.7))
-                            .font(.system(size: 20))
-                    }
+        VStack {
+            if let imageURLs = update.imageURLs, let firstImageURL = imageURLs.first {
+                AsyncImage(url: URL(string: firstImageURL)) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                } placeholder: {
+                    ProgressView()
                 }
-            )
-            .aspectRatio(isLarge ? 1 : 1, contentMode: .fill)
-            .clipped()
+            }
+            
+            Text(update.content)
+                .font(.system(size: 14))
+                .foregroundColor(.black)
+                .lineLimit(2)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 4)
+        }
+        .background(Color.white)
+        .cornerRadius(8)
+        .shadow(radius: 2)
     }
 }
 
 struct GalleryView: View {
     @Binding var showUploadView: Bool
+    let artworks: [Artwork]
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            VStack {
-                Text("Gallery Content")
-                    .foregroundColor(.gray)
-                Spacer()
+            ScrollView {
+                LazyVGrid(columns: [
+                    GridItem(.flexible()),
+                    GridItem(.flexible())
+                ], spacing: 1) {
+                    ForEach(artworks) { artwork in
+                        ArtworkCell(artwork: artwork)
+                    }
+                }
             }
-            .padding(.top, 20)
             
             // Floating Action Button
             Button(action: {
@@ -497,12 +435,38 @@ struct GalleryView: View {
                     
                     Image(systemName: "plus")
                         .font(.system(size: 20, weight: .thin))
-                        .foregroundColor(Color(hex: "5c5c5c"))
+                        .foregroundColor(.gray)
                 }
             }
             .padding(.trailing, 20)
             .padding(.bottom, 20)
         }
+    }
+}
+
+struct ArtworkCell: View {
+    let artwork: Artwork
+    
+    var body: some View {
+        VStack {
+            AsyncImage(url: URL(string: artwork.imageURL)) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            } placeholder: {
+                ProgressView()
+            }
+            
+            Text(artwork.title)
+                .font(.system(size: 14))
+                .foregroundColor(.black)
+                .lineLimit(1)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 4)
+        }
+        .background(Color.white)
+        .cornerRadius(8)
+        .shadow(radius: 2)
     }
 }
 

@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @StateObject private var loginModel = LoginModel()
     @State private var currentScreen: Screen = .welcome
     
     enum Screen {
@@ -16,9 +17,9 @@ struct LoginView: View {
                 case .welcome:
                     WelcomeView(currentScreen: $currentScreen)
                 case .login:
-                    SigninView(currentScreen: $currentScreen)
+                    SigninView(currentScreen: $currentScreen, loginModel: loginModel)
                 case .verifyEmail:
-                    VerifyEmailView(currentScreen: $currentScreen)
+                    VerifyEmailView(currentScreen: $currentScreen, loginModel: loginModel)
                 }
             }
         }
@@ -97,8 +98,10 @@ struct WelcomeView: View {
 
 struct SigninView: View {
     @Binding var currentScreen: LoginView.Screen
+    @ObservedObject var loginModel: LoginModel
     @State private var email: String = ""
     @State private var rememberMe: Bool = false
+    @State private var showError = false
     
     var body: some View {
         ZStack {
@@ -133,7 +136,13 @@ struct SigninView: View {
                 VStack(spacing: 16) {
                     // Social login options
                     Button(action: {
-                        // Google login action
+                        Task {
+                            do {
+                                try await loginModel.signInWithGoogle()
+                            } catch {
+                                showError = true
+                            }
+                        }
                     }) {
                         HStack {
                             Image(systemName: "g.circle.fill")
@@ -154,7 +163,13 @@ struct SigninView: View {
                     }
                     
                     Button(action: {
-                        // Apple login action
+                        Task {
+                            do {
+                                try await loginModel.signInWithApple()
+                            } catch {
+                                showError = true
+                            }
+                        }
                     }) {
                         HStack {
                             Image(systemName: "apple.logo")
@@ -176,7 +191,13 @@ struct SigninView: View {
                     }
                     
                     Button(action: {
-                        // Facebook login action
+                        Task {
+                            do {
+                                try await loginModel.signInWithFacebook()
+                            } catch {
+                                showError = true
+                            }
+                        }
                     }) {
                         HStack {
                             Image(systemName: "f.square.fill")
@@ -242,7 +263,14 @@ struct SigninView: View {
                     
                     // Sign in button
                     Button(action: {
-                        currentScreen = .verifyEmail
+                        Task {
+                            do {
+                                try await loginModel.signInWithEmail(email, rememberMe: rememberMe)
+                                currentScreen = .verifyEmail
+                            } catch {
+                                showError = true
+                            }
+                        }
                     }) {
                         Text("Sign in")
                             .font(.system(size: 16, weight: .semibold))
@@ -252,10 +280,7 @@ struct SigninView: View {
                             .background(Color(red: 0.3, green: 0.3, blue: 0.3))
                             .cornerRadius(12)
                     }
-                    
-                    // Sign up link
-                    
-                    .padding(.top, 8)
+                    .disabled(loginModel.isLoading)
                 }
                 .padding(.horizontal, 24)
                 .padding(.top, 32)
@@ -277,13 +302,20 @@ struct SigninView: View {
                 Spacer()
             }
         }
+        .alert("Error", isPresented: $showError) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(loginModel.error ?? "An error occurred")
+        }
     }
 }
 
 struct VerifyEmailView: View {
     @Binding var currentScreen: LoginView.Screen
+    @ObservedObject var loginModel: LoginModel
     @State private var otpFields: [String] = Array(repeating: "", count: 6)
     @FocusState private var focusedField: Int?
+    @State private var showError = false
     
     var body: some View {
         ZStack {
@@ -311,7 +343,7 @@ struct VerifyEmailView: View {
                         .font(.system(size: 24, weight: .bold))
                         .foregroundColor(.black)
                     
-                    Text("tartart@gmail.com")
+                    Text(loginModel.currentUser?.email ?? "")
                         .font(.system(size: 16))
                         .foregroundColor(Color(red: 0.6, green: 0.7, blue: 0.3))
                     
@@ -386,7 +418,15 @@ struct VerifyEmailView: View {
                 
                 // Sign in button
                 Button(action: {
-                    // Action for sign in with OTP
+                    Task {
+                        do {
+                            let otp = otpFields.joined()
+                            try await loginModel.verifyOTP(otp)
+                            // TODO: 处理登录成功后的导航
+                        } catch {
+                            showError = true
+                        }
+                    }
                 }) {
                     Text("Sign in")
                         .font(.system(size: 16, weight: .semibold))
@@ -396,9 +436,15 @@ struct VerifyEmailView: View {
                         .background(Color(red: 0.3, green: 0.3, blue: 0.3))
                         .cornerRadius(12)
                 }
+                .disabled(loginModel.isLoading)
                 .padding(.bottom, 32)
             }
             .padding(.horizontal, 24)
+        }
+        .alert("Error", isPresented: $showError) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(loginModel.error ?? "An error occurred")
         }
     }
 }
