@@ -24,7 +24,7 @@ struct HomeView: View {
                             }
                         } else {
                             Text("t")
-                                .font(.system(size: 18, weight: .light))
+                                .font(AppFont.lightTitle.font)
                                 .foregroundColor(.black)
                                 .padding()
                         }
@@ -62,7 +62,7 @@ struct HomeView: View {
                             }) {
                                 Text("Type anything...")
                                     .foregroundColor(.gray)
-                                    .font(.system(size: 14))
+                                    .font(AppFont.subheadline.font)
                                     .padding(.vertical, 8)
                                     .padding(.horizontal, 16)
                                     .background(Color(.systemGray6))
@@ -130,7 +130,7 @@ struct TabButton: View {
         Button(action: action) {
             VStack(spacing: 8) {
                 Text(title)
-                    .font(.system(size: 16, weight: isSelected ? .medium : .regular))
+                    .font(isSelected ? AppFont.bodyBold.font : AppFont.body.font)
                     .foregroundColor(.black)
                 
                 Rectangle()

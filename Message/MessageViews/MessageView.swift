@@ -14,7 +14,7 @@ struct MessageView: View {
                 ZStack(alignment: .center) {
                     // Title positioned exactly in the center
                     Text("Message")
-                        .font(.system(size: 20, weight: .semibold))
+                        .font(AppFont.title.font)
                         .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
                     
                     // Plus button positioned at trailing edge
@@ -50,7 +50,7 @@ struct MessageView: View {
                                 .foregroundColor(Color(UIColor.systemBlue))
                         }
                         Text("New Followers")
-                            .font(.system(size: 12))
+                            .font(AppFont.caption.font)
                             .foregroundColor(.black)
                     }
                 }
@@ -73,7 +73,7 @@ struct MessageView: View {
                                 .foregroundColor(.green)
                         }
                         Text("Comments & @")
-                            .font(.system(size: 12))
+                            .font(AppFont.caption.font)
                             .foregroundColor(.black)
                     }
                 }
@@ -157,11 +157,11 @@ struct MessageRowView: View {
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(message.username)
-                    .font(.system(size: 16, weight: .medium))
+                    .font(AppFont.body.font)
                     .foregroundColor(.black)
                 
                 Text(message.lastMessage)
-                    .font(.system(size: 14))
+                    .font(AppFont.subheadline.font)
                     .foregroundColor(.gray)
                     .lineLimit(1)
             }
@@ -170,7 +170,7 @@ struct MessageRowView: View {
             
             VStack(alignment: .trailing, spacing: 4) {
                 Text(message.time)
-                    .font(.system(size: 12))
+                    .font(AppFont.caption.font)
                     .foregroundColor(.gray)
                 
                 if message.isRead {
@@ -184,7 +184,7 @@ struct MessageRowView: View {
                             .frame(width: 18, height: 18)
                         
                         Text("\(message.unreadCount)")
-                            .font(.system(size: 12, weight: .bold))
+                            .font(AppFont.captionBold.font)
                             .foregroundColor(.white)
                     }
                 }

@@ -114,7 +114,7 @@ struct MenuButton: View {
                     .frame(width: 24, height: 24)
                 
                 Text(label)
-                    .font(.system(size: 16))
+                    .font(AppFont.body.font)
                     .foregroundColor(.black)
                 
                 Spacer()

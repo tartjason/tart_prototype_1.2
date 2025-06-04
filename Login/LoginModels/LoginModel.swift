@@ -135,8 +135,8 @@ class LoginModel: ObservableObject {
         error = nil
         
         do {
-            // 验证 OTP 格式
-            if otp.count != 6 {
+            // 验证 OTP 格式：必须是6位数字
+            if otp.count != 6 || !otp.allSatisfy({ $0.isNumber }) {
                 throw LoginAuthError.invalidOTP
             }
             

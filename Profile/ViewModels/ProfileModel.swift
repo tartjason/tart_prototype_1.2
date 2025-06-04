@@ -13,6 +13,7 @@ class ProfileModel: ObservableObject {
     @Published var user: ProfileUser
     @Published var artworks: [Artwork] = []
     @Published var lifeUpdates: [LifeUpdate] = []
+    @Published var collectedArtworks: [Artwork] = []
     @Published var isLoading: Bool = false
     @Published var error: Error?
     
@@ -21,10 +22,23 @@ class ProfileModel: ObservableObject {
     init(user: ProfileUser = ProfileUser.default) {
         self.user = user
         setupBindings()
+        loadInitialData()
     }
     
     private func setupBindings() {
         // Add any necessary bindings here
+    }
+    
+    private func loadInitialData() {
+        Task {
+            do {
+                try await fetchUserLifeUpdates()
+                try await fetchUserArtworks()
+                try await fetchCollectedArtworks()
+            } catch {
+                self.error = error
+            }
+        }
     }
     
     func updateProfile(name: String, username: String, bio: String, phoneNumber: String, email: String) async throws {
@@ -92,5 +106,14 @@ class ProfileModel: ObservableObject {
         // Here you would typically fetch life updates from an API
         // For now, we'll just use mock data
         lifeUpdates = ProfileMockData.lifeUpdates
+    }
+    
+    func fetchCollectedArtworks() async throws {
+        isLoading = true
+        defer { isLoading = false }
+        
+        // Here you would typically fetch collected artworks from an API
+        // For now, we'll just use mock data
+        collectedArtworks = ProfileMockData.collectedArtworks
     }
 }

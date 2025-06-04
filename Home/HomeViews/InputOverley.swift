@@ -21,11 +21,11 @@ struct InputOverlay: View {
             VStack {
                 VStack(alignment: .leading, spacing: 12) {
                     Text("Type Anything...")
-                        .font(.system(size: 16, weight: .medium))
+                        .font(AppFont.body.font)
                         .padding(.top, 8)
                     
                     TextField("How you are feeling? Artists you look for?", text: $inputText)
-                        .font(.system(size: 16))
+                        .font(AppFont.body.font)
                     
                     HStack {
                         Spacer()

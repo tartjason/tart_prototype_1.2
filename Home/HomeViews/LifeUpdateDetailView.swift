@@ -49,7 +49,7 @@ struct LifeUpdateDetailView: View {
                 
                 // Update content text
                 Text(update.content)
-                    .font(.system(size: 14))
+                    .font(AppFont.subheadline.font)
                     .lineSpacing(4)
                     .padding(.horizontal, 24)
                     .padding(.bottom, 20)
@@ -70,16 +70,16 @@ struct LifeUpdateDetailView: View {
                     // Name and location
                     VStack(alignment: .leading, spacing: 4) {
                         Text(update.username)
-                            .font(.system(size: 14, weight: .medium))
+                            .font(AppFont.subheadline.font)
                         
                         HStack(spacing: 12) {
                             Text(update.createdAt.timeAgoDisplay())
-                                .font(.system(size: 12, weight: .light))
+                                .font(AppFont.lightText.font)
                                 .foregroundColor(.gray)
                             
                             if let location = update.location {
                                 Text(location)
-                                    .font(.system(size: 12, weight: .light))
+                                    .font(AppFont.lightText.font)
                                     .foregroundColor(.gray)
                             }
                         }
@@ -91,7 +91,7 @@ struct LifeUpdateDetailView: View {
                 // Comments Section
                 HStack {
                     Text("Comments:")
-                        .font(.system(size: 14, weight: .bold))
+                        .font(AppFont.subheadlineBold.font)
                     
                     Spacer()
                     
@@ -101,7 +101,7 @@ struct LifeUpdateDetailView: View {
                             .font(.system(size: 14))
                         
                         Text("\(viewModel.likeCount)")
-                            .font(.system(size: 14))
+                            .font(AppFont.subheadline.font)
                             .foregroundColor(.gray)
                     }
                 }

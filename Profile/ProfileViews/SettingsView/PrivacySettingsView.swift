@@ -21,7 +21,7 @@ struct PrivacySettingsView: View {
                 }
                 
                 Text("Privacy Settings")
-                    .font(.system(size: 18, weight: .semibold))
+                    .font(AppFont.subtitle.font)
                     .padding(.leading)
                 
                 Spacer()
@@ -34,7 +34,7 @@ struct PrivacySettingsView: View {
                     // Interaction for Uploaded Artwork Section
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Interaction for Uploaded Artwork")
-                            .font(.system(size: 14))
+                            .font(AppFont.subheadline.font)
                             .foregroundColor(.gray)
                             .padding(.horizontal)
                         
@@ -54,7 +54,7 @@ struct PrivacySettingsView: View {
                     // Interaction for Uploaded Life Updates Section
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Interaction for Uploaded Life Updates")
-                            .font(.system(size: 14))
+                            .font(AppFont.subheadline.font)
                             .foregroundColor(.gray)
                             .padding(.horizontal)
                         
@@ -91,7 +91,7 @@ struct PrivacySettingsView: View {
                     // Relationship Section
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Relationship")
-                            .font(.system(size: 14))
+                            .font(AppFont.subheadline.font)
                             .foregroundColor(.gray)
                             .padding(.horizontal)
                         
@@ -126,7 +126,7 @@ struct PrivacyToggleRow: View {
     var body: some View {
         HStack {
             Text(title)
-                .font(.system(size: 16))
+                .font(AppFont.body.font)
                 .foregroundColor(.black)
             
             Spacer()
@@ -149,14 +149,14 @@ struct PrivacySettingRow: View {
         Button(action: action) {
             HStack {
                 Text(title)
-                    .font(.system(size: 16))
+                    .font(AppFont.body.font)
                     .foregroundColor(.black)
                 
                 Spacer()
                 
                 if let value = value {
                     Text(value)
-                        .font(.system(size: 16))
+                        .font(AppFont.body.font)
                         .foregroundColor(.gray)
                 }
                 

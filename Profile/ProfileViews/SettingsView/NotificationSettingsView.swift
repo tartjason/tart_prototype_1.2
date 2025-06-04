@@ -25,7 +25,7 @@ struct NotificationSettingsView: View {
                 }
                 
                 Text("Notification Settings")
-                    .font(.system(size: 18, weight: .semibold))
+                    .font(AppFont.subtitle.font)
                     .padding(.leading)
                 
                 Spacer()
@@ -46,7 +46,7 @@ struct NotificationSettingsView: View {
                     // Engagement notification section
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Engagement notification")
-                            .font(.system(size: 14))
+                            .font(AppFont.subheadline.font)
                             .foregroundColor(.gray)
                             .padding(.horizontal)
                         
@@ -81,7 +81,7 @@ struct NotificationSettingsView: View {
                     // Content notification section
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Content notification")
-                            .font(.system(size: 14))
+                            .font(AppFont.subheadline.font)
                             .foregroundColor(.gray)
                             .padding(.horizontal)
                         
@@ -112,7 +112,7 @@ struct NotificationToggleRow: View {
     var body: some View {
         HStack {
             Text(title)
-                .font(.system(size: 16))
+                .font(AppFont.body.font)
                 .foregroundColor(.black)
             
             Spacer()

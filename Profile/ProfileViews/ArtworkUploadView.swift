@@ -64,14 +64,14 @@ struct ArtworkUploadView: View {
                         Spacer()
                         
                         Text("Upload Artwork")
-                            .font(.system(size: 18))
+                            .font(AppFont.subtitle.font)
                             .foregroundColor(.black)
                         
                         Spacer()
                         
                         Button(action: uploadArtwork) {
                             Text("Post")
-                                .font(.system(size: 16, weight: .medium))
+                                .font(AppFont.bodyBold.font)
                                 .foregroundColor(.blue)
                         }
                         .disabled(isUploading || selectedImage == nil || selectedMedium.isEmpty || selectedLocation.isEmpty)
@@ -83,13 +83,13 @@ struct ArtworkUploadView: View {
                     // Text area
                     VStack(spacing: 12) {
                         TextEditor(text: $artworkDescription)
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.black)
                             .background(Color.clear)
                             .frame(minHeight: 40, maxHeight: 120)
                             .overlay(
                                 Text("Detailed description of your artwork...")
-                                    .font(.system(size: 16))
+                                    .font(AppFont.body.font)
                                     .foregroundColor(.gray)
                                     .padding(.top, 8)
                                     .padding(.leading, 4)
@@ -113,7 +113,7 @@ struct ArtworkUploadView: View {
                                     .frame(width: 24, height: 24)
                                 
                                 Text(selectedMedium.isEmpty ? "Pick medium" : selectedMedium)
-                                    .font(.system(size: 16, weight: .light))
+                                    .font(AppFont.body.font)
                                     .foregroundColor(.black)
                                 
                                 Spacer()
@@ -138,7 +138,7 @@ struct ArtworkUploadView: View {
                                     .frame(width: 24, height: 24)
                                 
                                 Text(selectedLocation.isEmpty ? "Mark location" : selectedLocation)
-                                    .font(.system(size: 16, weight: .light))
+                                    .font(AppFont.body.font)
                                     .foregroundColor(.black)
                                 
                                 Spacer()
@@ -158,7 +158,7 @@ struct ArtworkUploadView: View {
                             Button(action: {}) {
                                 HStack {
                                     Text("Advanced options")
-                                        .font(.system(size: 16))
+                                        .font(AppFont.body.font)
                                         .foregroundColor(.gray)
                                     
                                     Image(systemName: "chevron.right")
@@ -200,7 +200,7 @@ struct ArtworkUploadView: View {
                                         .foregroundColor(.gray)
                                     
                                     Text("Save draft")
-                                        .font(.system(size: 14))
+                                        .font(AppFont.subheadline.font)
                                         .foregroundColor(.gray)
                                 }
                             }
@@ -212,7 +212,7 @@ struct ArtworkUploadView: View {
                                         .foregroundColor(.gray)
                                     
                                     Text("Preview")
-                                        .font(.system(size: 14))
+                                        .font(AppFont.subheadline.font)
                                         .foregroundColor(.gray)
                                 }
                             }
@@ -279,13 +279,13 @@ struct ArtMediumPickerView: View {
                     Button("Cancel") {
                         dismiss()
                     }
-                    .font(.system(size: 17))
+                    .font(AppFont.body.font)
                     .foregroundColor(.blue)
                     
                     Spacer()
                     
                     Text("Pick Medium")
-                        .font(.system(size: 17, weight: .medium))
+                        .font(AppFont.bodyBold.font)
                         .foregroundColor(.black)
                     
                     Spacer()
@@ -293,7 +293,7 @@ struct ArtMediumPickerView: View {
                     Button("Done") {
                         dismiss()
                     }
-                    .font(.system(size: 17, weight: .medium))
+                    .font(AppFont.bodyBold.font)
                     .foregroundColor(.blue)
                 }
                 .padding(.horizontal, 16)
@@ -311,14 +311,14 @@ struct ArtMediumPickerView: View {
                             }) {
                                 HStack {
                                     Text(medium)
-                                        .font(.system(size: 16))
+                                        .font(AppFont.body.font)
                                         .foregroundColor(.black)
                                     
                                     Spacer()
                                     
                                     if selectedMedium == medium {
                                         Image(systemName: "checkmark")
-                                            .font(.system(size: 16, weight: .medium))
+                                            .font(AppFont.bodyBold.font)
                                             .foregroundColor(.blue)
                                     }
                                 }
@@ -353,13 +353,13 @@ struct ArtLocationPickerView: View {
                     Button("Cancel") {
                         dismiss()
                     }
-                    .font(.system(size: 17))
+                    .font(AppFont.body.font)
                     .foregroundColor(.blue)
                     
                     Spacer()
                     
                     Text("Mark Location")
-                        .font(.system(size: 17, weight: .medium))
+                        .font(AppFont.bodyBold.font)
                         .foregroundColor(.black)
                     
                     Spacer()
@@ -367,7 +367,7 @@ struct ArtLocationPickerView: View {
                     Button("Done") {
                         dismiss()
                     }
-                    .font(.system(size: 17, weight: .medium))
+                    .font(AppFont.bodyBold.font)
                     .foregroundColor(.blue)
                 }
                 .padding(.horizontal, 16)
@@ -385,14 +385,14 @@ struct ArtLocationPickerView: View {
                             }) {
                                 HStack {
                                     Text(location)
-                                        .font(.system(size: 16))
+                                        .font(AppFont.body.font)
                                         .foregroundColor(.black)
                                     
                                     Spacer()
                                     
                                     if selectedLocation == location {
                                         Image(systemName: "checkmark")
-                                            .font(.system(size: 16, weight: .medium))
+                                            .font(AppFont.bodyBold.font)
                                             .foregroundColor(.blue)
                                     }
                                 }

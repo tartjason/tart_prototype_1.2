@@ -37,14 +37,14 @@ struct EditProfileView: View {
                     }
                     
                     Text("Edit Profile")
-                        .font(.system(size: 18))
+                        .font(AppFont.subtitle.font)
                         .foregroundColor(.black)
                     
                     Spacer()
                     
                     Button(action: saveProfile) {
                         Text("Save")
-                            .font(.system(size: 16, weight: .medium))
+                            .font(AppFont.bodyBold.font)
                             .foregroundColor(.blue)
                     }
                     .disabled(isSaving)
@@ -99,7 +99,7 @@ struct EditProfileView: View {
                     // Change Avatar Button - Now next to the profile image
                     Button(action: {}) {
                         Text("Change Avatar")
-                            .font(.system(size: 14))
+                            .font(AppFont.subheadline.font)
                             .foregroundColor(.black)
                             .padding(.horizontal, 16)
                             .padding(.vertical, 6)
@@ -115,7 +115,7 @@ struct EditProfileView: View {
                 
                 // Public Information Section
                 Text("Public Information")
-                    .font(.system(size: 20, weight: .medium))
+                    .font(AppFont.title.font)
                     .padding(.leading, 16)
                     .padding(.bottom, 16)
                 
@@ -123,12 +123,12 @@ struct EditProfileView: View {
                     // Name Field
                     HStack(alignment: .center) {
                         Text("Name")
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.black)
                             .frame(width: 100, alignment: .leading)
                         
                         TextField("", text: $name)
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.black)
                     }
                     .padding(.horizontal, 16)
@@ -139,12 +139,12 @@ struct EditProfileView: View {
                     // Username Field
                     HStack(alignment: .center) {
                         Text("Username")
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.black)
                             .frame(width: 100, alignment: .leading)
                         
                         TextField("", text: $username)
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.black)
                     }
                     .padding(.horizontal, 16)
@@ -155,12 +155,12 @@ struct EditProfileView: View {
                     // Bio Field
                     HStack(alignment: .center) {
                         Text("Bio")
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.black)
                             .frame(width: 100, alignment: .leading)
                         
                         TextField("", text: $bio)
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.black)
                     }
                     .padding(.horizontal, 16)
@@ -172,7 +172,7 @@ struct EditProfileView: View {
                     Button(action: {}) {
                         HStack {
                             Text("Public Profile Permissions")
-                                .font(.system(size: 16))
+                                .font(AppFont.body.font)
                                 .foregroundColor(.black)
                                 .frame(width: 220, alignment: .leading)
                             
@@ -192,7 +192,7 @@ struct EditProfileView: View {
                 
                 // Private Information Section
                 Text("Private Information")
-                    .font(.system(size: 20, weight: .medium))
+                    .font(AppFont.title.font)
                     .padding(.leading, 16)
                     .padding(.top, 20)
                     .padding(.bottom, 16)
@@ -201,12 +201,12 @@ struct EditProfileView: View {
                     // Phone Field
                     HStack(alignment: .center) {
                         Text("Phone no.")
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.black)
                             .frame(width: 100, alignment: .leading)
                         
                         TextField("", text: $phoneNumber)
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.black)
                             .keyboardType(.phonePad)
                     }
@@ -218,12 +218,12 @@ struct EditProfileView: View {
                     // Email Field
                     HStack(alignment: .center) {
                         Text("Email")
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.black)
                             .frame(width: 100, alignment: .leading)
                         
                         TextField("", text: $email)
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.black)
                             .keyboardType(.emailAddress)
                     }
@@ -235,12 +235,12 @@ struct EditProfileView: View {
                     // Gender Field
                     HStack(alignment: .center) {
                         Text("Gender")
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.black)
                             .frame(width: 100, alignment: .leading)
                         
                         TextField("", text: $gender)
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.black)
                     }
                     .padding(.horizontal, 16)
@@ -251,12 +251,12 @@ struct EditProfileView: View {
                     // Birthdate Field
                     HStack(alignment: .center) {
                         Text("Birthdate")
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.black)
                             .frame(width: 100, alignment: .leading)
                         
                         TextField("", text: $birthdate)
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.black)
                     }
                     .padding(.horizontal, 16)

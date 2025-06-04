@@ -66,7 +66,7 @@ struct ArtworkDetailView: View {
                 // Artwork Description Section
                 HStack {
                     Text("Artwork Description")
-                        .font(.system(size: 22, weight: .bold))
+                        .font(AppFont.title.font)
                     
                     Spacer()
                     
@@ -84,19 +84,19 @@ struct ArtworkDetailView: View {
                 .padding(.bottom, 12)
                 
                 Text(artwork.description)
-                    .font(.system(size: 17, weight: .medium))
+                    .font(AppFont.body.font)
                     .italic()
                     .padding(.horizontal, 24)
                     .padding(.bottom, 32)
                 
                 // Inspiration Section
                 Text("Inspiration")
-                    .font(.system(size: 22, weight: .bold))
+                    .font(AppFont.title.font)
                     .padding(.horizontal, 24)
                     .padding(.bottom, 12)
                 
                 Text(artwork.inspiration)
-                    .font(.system(size: 17))
+                    .font(AppFont.body.font)
                     .lineSpacing(4)
                     .padding(.horizontal, 24)
                     .padding(.bottom, 32)
@@ -114,11 +114,11 @@ struct ArtworkDetailView: View {
                 HStack(alignment: .bottom) {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(artwork.createdAt.timeAgoDisplay())
-                            .font(.system(size: 14, weight: .light))
+                            .font(AppFont.lightText.font)
                             .foregroundColor(.gray)
                         
                         Text(artwork.location)
-                            .font(.system(size: 14, weight: .light))
+                            .font(AppFont.lightText.font)
                             .foregroundColor(.gray)
                     }
                     
@@ -135,13 +135,13 @@ struct ArtworkDetailView: View {
                         
                         VStack(alignment: .leading, spacing: 4) {
                             Text(artwork.artist)
-                                .font(.system(size: 16, weight: .medium))
+                                .font(AppFont.body.font)
                             
                             Button(action: {
                                 // Follow action
                             }) {
                                 Text("Follow")
-                                    .font(.system(size: 14))
+                                    .font(AppFont.subheadline.font)
                                     .foregroundColor(.gray)
                             }
                         }
@@ -153,7 +153,7 @@ struct ArtworkDetailView: View {
                 // Comments Section
                 HStack {
                     Text("Comments:")
-                        .font(.system(size: 20, weight: .bold))
+                        .font(AppFont.title.font)
                     
                     Spacer()
                     
@@ -163,7 +163,7 @@ struct ArtworkDetailView: View {
                             .font(.system(size: 14))
                         
                         Text("\(viewModel.likeCount)")
-                            .font(.system(size: 14))
+                            .font(AppFont.subheadline.font)
                             .foregroundColor(.gray)
                     }
                 }
@@ -209,10 +209,10 @@ struct CommentView: View {
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(comment.username)
-                    .font(.system(size: 16, weight: .medium))
+                    .font(AppFont.body.font)
                 
                 Text(comment.content)
-                    .font(.system(size: 15))
+                    .font(AppFont.subheadline.font)
             }
             .padding(.leading, 8)
             

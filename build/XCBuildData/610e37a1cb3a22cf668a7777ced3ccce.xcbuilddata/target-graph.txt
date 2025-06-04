@@ -1,0 +1,2 @@
+Target dependency graph (1 target)
+Target 'tart_prototype' in project 'tart_prototype' (no dependencies)

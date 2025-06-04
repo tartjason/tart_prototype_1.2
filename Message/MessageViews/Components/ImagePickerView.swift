@@ -123,7 +123,7 @@ struct CustomImagePickerSheet: View {
             
             // Title
             Text("Select Image")
-                .font(.system(size: 18, weight: .semibold))
+                .font(AppFont.subtitle.font)
                 .padding(.bottom, 20)
             
             // Options
@@ -137,7 +137,7 @@ struct CustomImagePickerSheet: View {
                             .foregroundColor(.blue)
                         
                         Text("Photo Library")
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.primary)
                         
                         Spacer()
@@ -159,7 +159,7 @@ struct CustomImagePickerSheet: View {
                             .foregroundColor(.blue)
                         
                         Text("Take Photo")
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.primary)
                         
                         Spacer()
