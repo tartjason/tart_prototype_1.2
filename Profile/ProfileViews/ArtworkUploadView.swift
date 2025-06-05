@@ -4,91 +4,74 @@ import PhotosUI
 struct ArtworkUploadView: View {
     @Environment(\.dismiss) var dismiss
     @ObservedObject var model: ProfileModel
+    
     @State private var artworkDescription = ""
+    @State private var inspirationDescription = ""
     @State private var selectedMedium = ""
     @State private var selectedLocation = ""
-    @State private var showMediumSheet = false
-    @State private var showLocationSheet = false
-    @State private var selectedItem: PhotosPickerItem?
-    @State private var selectedImage: Image?
-    @State private var isUploading = false
-    @State private var showError = false
-    @State private var errorMessage = ""
+    @State private var showMediumPicker = false
+    @State private var showLocationPicker = false
     
-    private let artMediums = [
-        "Painting",
+    // Photo picker states
+    @State private var artworkImageItem: PhotosPickerItem?
+    @State private var artworkImage: UIImage?
+    @State private var inspirationImageItem: PhotosPickerItem?
+    @State private var inspirationImage: UIImage?
+    
+    private let mediumOptions = [
+        "Colored Pencil",
+        "Oil Painting",
+        "Sketch",
         "Sculpture",
-        "Photography",
-        "Jewelry",
-        "Poem",
-        "Digital Art",
-        "Mixed Media",
-        "Drawing",
-        "Printmaking",
-        "Ceramics",
-        "Textiles",
         "Installation",
-        "Video",
-        "Performance"
+        "Jewelry"
     ]
     
-    private let locations = [
+    private let locationOptions = [
         "New York, NY",
         "Los Angeles, CA",
-        "Chicago, IL",
         "San Francisco, CA",
-        "Paris, France",
-        "London, UK",
-        "Berlin, Germany",
-        "Tokyo, Japan",
-        "Toronto, Canada",
-        "Sydney, Australia"
+        "Chicago, IL",
+        "Miami, FL",
+        "Seattle, WA",
+        "Boston, MA",
+        "Austin, TX",
+        "Denver, CO",
+        "Portland, OR"
     ]
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color.white.ignoresSafeArea()
-                
-                VStack(spacing: 0) {
-                    // Navigation Bar
-                    HStack {
-                        Button(action: {
-                            dismiss()
-                        }) {
-                            Image(systemName: "arrow.left")
-                                .font(.system(size: 20))
-                                .foregroundColor(.black)
-                        }
-                        
-                        Spacer()
-                        
-                        Text("Upload Artwork")
-                            .font(AppFont.subtitle.font)
-                            .foregroundColor(.black)
-                        
-                        Spacer()
-                        
-                        Button(action: uploadArtwork) {
-                            Text("Post")
-                                .font(AppFont.bodyBold.font)
-                                .foregroundColor(.blue)
-                        }
-                        .disabled(isUploading || selectedImage == nil || selectedMedium.isEmpty || selectedLocation.isEmpty)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 0) {
+                // Navigation Bar
+                HStack {
+                    Button("Cancel") {
+                        dismiss()
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.top, 10)
-                    .padding(.bottom, 20)
+                    .font(AppFont.body.font)
+                    .foregroundColor(.black)
                     
-                    // Text area
-                    VStack(spacing: 12) {
+                    Spacer()
+                }
+                .padding(.horizontal, 16)
+                .padding(.top, 10)
+                .padding(.bottom, 20)
+                
+                // Artwork Info Section
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("Artwork Info")
+                        .font(Font.title2.weight(.bold))
+                        .foregroundColor(.black)
+                        .padding(.horizontal, 16)
+                    
+                    // Description text field
+                    VStack(alignment: .leading, spacing: 8) {
                         TextEditor(text: $artworkDescription)
                             .font(AppFont.body.font)
                             .foregroundColor(.black)
-                            .background(Color.clear)
-                            .frame(minHeight: 40, maxHeight: 120)
+                            .frame(minHeight: 80)
                             .overlay(
-                                Text("Detailed description of your artwork...")
+                                Text("Brief description of your artwork...")
                                     .font(AppFont.body.font)
                                     .foregroundColor(.gray)
                                     .padding(.top, 8)
@@ -98,183 +81,260 @@ struct ArtworkUploadView: View {
                                 , alignment: .topLeading
                             )
                             .padding(.horizontal, 16)
-                            .padding(.top, 20)
-                        
-                        Spacer().frame(height: 20)
-                        
-                        // Pick medium button
-                        Button(action: {
-                            showMediumSheet = true
-                        }) {
-                            HStack(spacing: 12) {
-                                Image(systemName: "paintbrush")
-                                    .font(.system(size: 18, weight: .light))
-                                    .foregroundColor(.black)
-                                    .frame(width: 24, height: 24)
-                                
-                                Text(selectedMedium.isEmpty ? "Pick medium" : selectedMedium)
-                                    .font(AppFont.body.font)
-                                    .foregroundColor(.black)
-                                
-                                Spacer()
-                                
-                                Image(systemName: "chevron.right")
-                                    .font(.system(size: 14, weight: .light))
-                                    .foregroundColor(.gray)
-                            }
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 6)
-                            .background(Color.clear)
-                        }
-                        
-                        // Mark location button
-                        Button(action: {
-                            showLocationSheet = true
-                        }) {
-                            HStack(spacing: 12) {
-                                Image(systemName: "location")
-                                    .font(.system(size: 18, weight: .light))
-                                    .foregroundColor(.black)
-                                    .frame(width: 24, height: 24)
-                                
-                                Text(selectedLocation.isEmpty ? "Mark location" : selectedLocation)
-                                    .font(AppFont.body.font)
-                                    .foregroundColor(.black)
-                                
-                                Spacer()
-                                
-                                Image(systemName: "chevron.right")
-                                    .font(.system(size: 14, weight: .light))
-                                    .foregroundColor(.gray)
-                            }
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 6)
-                            .background(Color.clear)
-                        }
-                        
-                        // Advanced options and Camera in same row
-                        HStack(alignment: .center) {
-                            // Advanced options button
-                            Button(action: {}) {
-                                HStack {
-                                    Text("Advanced options")
-                                        .font(AppFont.body.font)
-                                        .foregroundColor(.gray)
-                                    
-                                    Image(systemName: "chevron.right")
-                                        .font(.system(size: 14, weight: .medium))
-                                        .foregroundColor(.gray)
+                    }
+                    
+                    // Picture of artwork
+                    VStack(spacing: 12) {
+                        PhotosPicker(selection: $artworkImageItem, matching: .images) {
+                            VStack(spacing: 12) {
+                                if let artworkImage = artworkImage {
+                                    Image(uiImage: artworkImage)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(height: 200)
+                                        .clipped()
+                                        .cornerRadius(12)
+                                } else {
+                                    Rectangle()
+                                        .fill(Color.gray.opacity(0.1))
+                                        .frame(height: 200)
+                                        .overlay(
+                                            VStack(spacing: 8) {
+                                                Image(systemName: "camera")
+                                                    .font(.system(size: 32))
+                                                    .foregroundColor(.gray)
+                                                
+                                                Text("Picture of artwork")
+                                                    .font(AppFont.subheadline.font)
+                                                    .foregroundColor(.gray)
+                                            }
+                                        )
+                                        .cornerRadius(12)
                                 }
                             }
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 6)
-                            
-                            Spacer()
-                            
-                            // Camera button (no circle, just the icon)
-                            PhotosPicker(selection: $selectedItem, matching: .images) {
-                                Image(systemName: "camera")
-                                    .font(.system(size: 24, weight: .light))
-                                    .foregroundColor(Color(hex: "5c5c5c"))
-                            }
-                            .onChange(of: selectedItem) { newItem in
-                                Task {
-                                    if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                                        if let uiImage = UIImage(data: data) {
-                                            selectedImage = Image(uiImage: uiImage)
-                                        }
+                        }
+                        .onChange(of: artworkImageItem) { newItem in
+                            Task {
+                                if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                                    if let uiImage = UIImage(data: data) {
+                                        artworkImage = uiImage
                                     }
                                 }
                             }
-                            .padding(.trailing, 16)
                         }
-                        
-                        Spacer()
-                        
-                        // Bottom buttons
-                        HStack(spacing: 20) {
-                            Button(action: {}) {
-                                HStack(spacing: 8) {
-                                    Image(systemName: "photo")
-                                        .font(.system(size: 20))
-                                        .foregroundColor(.gray)
-                                    
-                                    Text("Save draft")
-                                        .font(AppFont.subheadline.font)
-                                        .foregroundColor(.gray)
+                    }
+                    .padding(.horizontal, 16)
+                }
+                .padding(.bottom, 40)
+                
+                // Inspiration Section
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("Inspiration")
+                        .font(Font.title2.weight(.bold))
+                        .foregroundColor(.black)
+                        .padding(.horizontal, 16)
+                    
+                    // Inspiration description
+                    VStack(alignment: .leading, spacing: 8) {
+                        TextEditor(text: $inspirationDescription)
+                            .font(AppFont.body.font)
+                            .foregroundColor(.black)
+                            .frame(minHeight: 80)
+                            .overlay(
+                                Text("Describe how you have been inspired to create this piece of artwork. Feel free to share any back stories about it...")
+                                    .font(AppFont.body.font)
+                                    .foregroundColor(.gray)
+                                    .padding(.top, 8)
+                                    .padding(.leading, 4)
+                                    .allowsHitTesting(false)
+                                    .opacity(inspirationDescription.isEmpty ? 1 : 0)
+                                , alignment: .topLeading
+                            )
+                            .padding(.horizontal, 16)
+                    }
+                    
+                    // Sketch/Inspiration photo
+                    VStack(spacing: 12) {
+                        PhotosPicker(selection: $inspirationImageItem, matching: .images) {
+                            VStack(spacing: 12) {
+                                if let inspirationImage = inspirationImage {
+                                    Image(uiImage: inspirationImage)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(height: 200)
+                                        .clipped()
+                                        .cornerRadius(12)
+                                } else {
+                                    Rectangle()
+                                        .fill(Color.gray.opacity(0.1))
+                                        .frame(height: 200)
+                                        .overlay(
+                                            VStack(spacing: 8) {
+                                                Image(systemName: "camera")
+                                                    .font(.system(size: 32))
+                                                    .foregroundColor(.gray)
+                                                
+                                                Text("Sketch/Inspiration")
+                                                    .font(AppFont.subheadline.font)
+                                                    .foregroundColor(.gray)
+                                            }
+                                        )
+                                        .cornerRadius(12)
                                 }
                             }
+                        }
+                        .onChange(of: inspirationImageItem) { newItem in
+                            Task {
+                                if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                                    if let uiImage = UIImage(data: data) {
+                                        inspirationImage = uiImage
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                }
+                .padding(.bottom, 40)
+                
+                // Options Section
+                VStack(spacing: 16) {
+                    // Pick medium
+                    Button(action: {
+                        showMediumPicker = true
+                    }) {
+                        HStack(spacing: 12) {
+                            Image(systemName: "paintbrush")
+                                .font(.system(size: 20))
+                                .foregroundColor(.black)
+                                .frame(width: 24, height: 24)
                             
-                            Button(action: {}) {
-                                HStack(spacing: 8) {
-                                    Image(systemName: "eye")
-                                        .font(.system(size: 20))
-                                        .foregroundColor(.gray)
-                                    
-                                    Text("Preview")
-                                        .font(AppFont.subheadline.font)
-                                        .foregroundColor(.gray)
-                                }
-                            }
+                            Text(selectedMedium.isEmpty ? "Pick medium" : selectedMedium)
+                                .font(AppFont.body.font)
+                                .foregroundColor(.black)
                             
                             Spacer()
+                            
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 14))
+                                .foregroundColor(.gray)
                         }
-                        .padding(.horizontal, 20)
-                        .padding(.bottom, 20)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 12)
+                    }
+                    
+                    // Mark location
+                    Button(action: {
+                        showLocationPicker = true
+                    }) {
+                        HStack(spacing: 12) {
+                            Image(systemName: "location")
+                                .font(.system(size: 20))
+                                .foregroundColor(.black)
+                                .frame(width: 24, height: 24)
+                            
+                            Text(selectedLocation.isEmpty ? "Mark location" : selectedLocation)
+                                .font(AppFont.body.font)
+                                .foregroundColor(.black)
+                            
+                            Spacer()
+                            
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 14))
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 12)
+                    }
+                    
+                    // Advanced options
+                    Button(action: {}) {
+                        HStack(spacing: 12) {
+                            Text("Advanced options")
+                                .font(AppFont.body.font)
+                                .foregroundColor(.gray)
+                            
+                            Spacer()
+                            
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 14))
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 12)
                     }
                 }
-            }
-            .navigationBarHidden(true)
-            .alert("Error", isPresented: $showError) {
-                Button("OK", role: .cancel) {}
-            } message: {
-                Text(errorMessage)
+                .padding(.bottom, 40)
+                
+                // Bottom buttons
+                HStack(spacing: 20) {
+                    Button(action: {}) {
+                        HStack(spacing: 8) {
+                            Image(systemName: "photo")
+                                .font(.system(size: 18))
+                                .foregroundColor(.gray)
+                            
+                            Text("Save draft")
+                                .font(AppFont.subheadline.font)
+                                .foregroundColor(.gray)
+                        }
+                    }
+                    
+                    Button(action: {}) {
+                        HStack(spacing: 8) {
+                            Image(systemName: "eye")
+                                .font(.system(size: 18))
+                                .foregroundColor(.gray)
+                            
+                            Text("Preview")
+                                .font(AppFont.subheadline.font)
+                                .foregroundColor(.gray)
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    // Post button
+                    Button(action: {
+                        submitArtwork()
+                    }) {
+                        Text("Post")
+                            .font(AppFont.subheadlineBold.font)
+                            .foregroundColor(Color(hex: "5c5c5c"))
+                            .frame(width: 80, height: 36)
+                            .background(Color(hex: "E0EFFF"))
+                            .cornerRadius(18)
+                    }
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 40)
             }
         }
-        .sheet(isPresented: $showMediumSheet) {
-            ArtMediumPickerView(selectedMedium: $selectedMedium, mediums: artMediums)
+        .navigationBarHidden(true)
+        .sheet(isPresented: $showMediumPicker) {
+            MediumPickerView(selectedMedium: $selectedMedium, options: mediumOptions)
         }
-        .sheet(isPresented: $showLocationSheet) {
-            ArtLocationPickerView(selectedLocation: $selectedLocation, locations: locations)
+        .sheet(isPresented: $showLocationPicker) {
+            LocationPickerView(selectedLocation: $selectedLocation, options: locationOptions)
         }
     }
     
-    private func uploadArtwork() {
-        guard let image = selectedImage else { return }
-        
-        isUploading = true
-        
-        Task {
-            do {
-                // Convert SwiftUI Image to UIImage
-                let renderer = ImageRenderer(content: image)
-                if let uiImage = renderer.uiImage {
-                    try await model.uploadArtwork(
-                        description: artworkDescription,
-                        medium: selectedMedium,
-                        location: selectedLocation,
-                        image: uiImage
-                    )
-                    dismiss()
-                }
-            } catch {
-                errorMessage = error.localizedDescription
-                showError = true
-            }
-            isUploading = false
-        }
+    private func submitArtwork() {
+        // TODO: Submit artwork to model
+        dismiss()
     }
 }
 
-// Renamed to avoid conflicts with existing views
-struct ArtMediumPickerView: View {
+// Medium Picker View
+struct MediumPickerView: View {
     @Environment(\.dismiss) var dismiss
     @Binding var selectedMedium: String
-    let mediums: [String]
+    let options: [String]
     
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
+                // Header
                 HStack {
                     Button("Cancel") {
                         dismiss()
@@ -285,7 +345,7 @@ struct ArtMediumPickerView: View {
                     Spacer()
                     
                     Text("Pick Medium")
-                        .font(AppFont.bodyBold.font)
+                        .font(Font.title2.weight(.bold))
                         .foregroundColor(.black)
                     
                     Spacer()
@@ -297,28 +357,28 @@ struct ArtMediumPickerView: View {
                     .foregroundColor(.blue)
                 }
                 .padding(.horizontal, 16)
-                .padding(.top, 8)
-                .padding(.bottom, 8)
+                .padding(.vertical, 12)
                 
                 Divider()
                 
+                // Options list
                 ScrollView {
-                    LazyVStack(spacing: 0) {
-                        ForEach(mediums, id: \.self) { medium in
+                    VStack(spacing: 0) {
+                        ForEach(options, id: \.self) { option in
                             Button(action: {
-                                selectedMedium = medium
+                                selectedMedium = option
                                 dismiss()
                             }) {
                                 HStack {
-                                    Text(medium)
+                                    Text(option)
                                         .font(AppFont.body.font)
                                         .foregroundColor(.black)
                                     
                                     Spacer()
                                     
-                                    if selectedMedium == medium {
+                                    if selectedMedium == option {
                                         Image(systemName: "checkmark")
-                                            .font(AppFont.bodyBold.font)
+                                            .font(AppFont.body.font)
                                             .foregroundColor(.blue)
                                     }
                                 }
@@ -327,7 +387,7 @@ struct ArtMediumPickerView: View {
                                 .background(Color.white)
                             }
                             
-                            if medium != mediums.last {
+                            if option != options.last {
                                 Divider()
                                     .padding(.leading, 16)
                             }
@@ -340,15 +400,16 @@ struct ArtMediumPickerView: View {
     }
 }
 
-// Renamed to avoid conflicts with existing views
-struct ArtLocationPickerView: View {
+// Location Picker View
+struct LocationPickerView: View {
     @Environment(\.dismiss) var dismiss
     @Binding var selectedLocation: String
-    let locations: [String]
+    let options: [String]
     
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
+                // Header
                 HStack {
                     Button("Cancel") {
                         dismiss()
@@ -359,7 +420,7 @@ struct ArtLocationPickerView: View {
                     Spacer()
                     
                     Text("Mark Location")
-                        .font(AppFont.bodyBold.font)
+                        .font(Font.title2.weight(.bold))
                         .foregroundColor(.black)
                     
                     Spacer()
@@ -371,28 +432,28 @@ struct ArtLocationPickerView: View {
                     .foregroundColor(.blue)
                 }
                 .padding(.horizontal, 16)
-                .padding(.top, 8)
-                .padding(.bottom, 8)
+                .padding(.vertical, 12)
                 
                 Divider()
                 
+                // Options list
                 ScrollView {
-                    LazyVStack(spacing: 0) {
-                        ForEach(locations, id: \.self) { location in
+                    VStack(spacing: 0) {
+                        ForEach(options, id: \.self) { option in
                             Button(action: {
-                                selectedLocation = location
+                                selectedLocation = option
                                 dismiss()
                             }) {
                                 HStack {
-                                    Text(location)
+                                    Text(option)
                                         .font(AppFont.body.font)
                                         .foregroundColor(.black)
                                     
                                     Spacer()
                                     
-                                    if selectedLocation == location {
+                                    if selectedLocation == option {
                                         Image(systemName: "checkmark")
-                                            .font(AppFont.bodyBold.font)
+                                            .font(AppFont.body.font)
                                             .foregroundColor(.blue)
                                     }
                                 }
@@ -401,7 +462,7 @@ struct ArtLocationPickerView: View {
                                 .background(Color.white)
                             }
                             
-                            if location != locations.last {
+                            if option != options.last {
                                 Divider()
                                     .padding(.leading, 16)
                             }
@@ -414,8 +475,8 @@ struct ArtLocationPickerView: View {
     }
 }
 
-struct ArtworkUploadView_Previews: PreviewProvider {
-    static var previews: some View {
-        ArtworkUploadView(model: ProfileModel())
-    }
+
+
+#Preview {
+    ArtworkUploadView(model: ProfileModel())
 }
