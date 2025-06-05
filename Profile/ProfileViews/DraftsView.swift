@@ -16,7 +16,7 @@ struct DraftsView: View {
                 }
                 
                 Text("Drafts")
-                    .font(.system(size: 18, weight: .semibold))
+                    .font(AppFont.subtitle.font)
                     .padding(.leading)
                 
                 Spacer()
@@ -31,7 +31,7 @@ struct DraftsView: View {
                     }) {
                         VStack(spacing: 8) {
                             Text(tab)
-                                .font(.system(size: 16))
+                                .font(AppFont.body.font)
                                 .foregroundColor(selectedTab == tab ? .black : .gray)
                                 .padding(.vertical, 8)
                             
@@ -70,7 +70,7 @@ struct DraftsView: View {
                                 // "Just now" label with trash icon
                                 HStack {
                                     Text("Just now")
-                                        .font(.caption)
+                                        .font(AppFont.caption.font)
                                         .foregroundColor(.white)
                                     
                                     Spacer()

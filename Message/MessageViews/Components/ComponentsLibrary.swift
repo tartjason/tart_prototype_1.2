@@ -21,7 +21,7 @@ struct AppButton: View {
                 }
                 
                 Text(title)
-                    .font(.system(size: 16, weight: .medium))
+                    .font(AppFont.body.font)
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 10)
@@ -63,7 +63,7 @@ struct HeaderText: View {
     
     var body: some View {
         Text(text)
-            .font(.system(size: 20, weight: .semibold))
+            .font(AppFont.title.font)
             .multilineTextAlignment(alignment)
     }
 }
@@ -75,7 +75,7 @@ struct SecondaryText: View {
     
     var body: some View {
         Text(text)
-            .font(.system(size: 14))
+            .font(AppFont.subheadline.font)
             .foregroundColor(color)
     }
 }
@@ -90,6 +90,7 @@ struct AppTextField: View {
     
     var body: some View {
         TextField(placeholder, text: $text, onCommit: onCommit ?? {})
+            .font(AppFont.body.font)
             .padding(12)
             .background(Color(UIColor.systemGray6))
             .cornerRadius(8)
@@ -104,6 +105,7 @@ struct MessageInputField: View {
     
     var body: some View {
         TextField(placeholder, text: $text, onCommit: onCommit)
+            .font(AppFont.body.font)
             .padding(10)
             .background(Color(UIColor.systemGray6))
             .cornerRadius(20)

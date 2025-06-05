@@ -117,6 +117,7 @@ struct MessageBubble: View {
                 // Message Text
                 if !message.text.isEmpty {
                     Text(message.text)
+                        .font(AppFont.body.font)
                         .padding(12)
                         .background(message.isFromMe ? Color.blue : Color(.systemGray5))
                         .foregroundColor(message.isFromMe ? .white : .primary)
@@ -140,7 +141,7 @@ struct MessageBubble: View {
                 
                 // Time
                 Text(formatTime(message.timestamp))
-                    .font(.caption2)
+                    .font(AppFont.caption.font)
                     .foregroundColor(.gray)
             }
             

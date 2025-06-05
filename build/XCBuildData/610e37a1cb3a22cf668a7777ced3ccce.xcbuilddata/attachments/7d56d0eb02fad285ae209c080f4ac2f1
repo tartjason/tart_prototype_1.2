@@ -1,0 +1,508 @@
+{
+  "" : {
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/tart_prototype-master.dia",
+    "emit-module-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/tart_prototype-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/tart_prototype-master-emit-module.dia",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/tart_prototype-master.swiftdeps"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Home/HomeViews/ArtworkCardView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkCardView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkCardView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkCardView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkCardView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkCardView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkCardView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkCardView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkCardView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Home/HomeViews/ArtworkDetailView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkDetailView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkDetailView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkDetailView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkDetailView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkDetailView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkDetailView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkDetailView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkDetailView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Home/HomeViews/HomeView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Home/HomeViews/InputOverley.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/InputOverley.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/InputOverley.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/InputOverley.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/InputOverley.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/InputOverley.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/InputOverley.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/InputOverley.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/InputOverley~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Home/HomeViews/LifeUpdateDetailView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdateDetailView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdateDetailView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdateDetailView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdateDetailView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdateDetailView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdateDetailView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdateDetailView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdateDetailView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Home/HomeViews/LifeUpdatesView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdatesView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdatesView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdatesView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdatesView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdatesView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdatesView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdatesView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdatesView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Home/Models/Artwork.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/Artwork.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/Artwork.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/Artwork.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/Artwork.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/Artwork.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/Artwork.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/Artwork.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/Artwork~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Home/Models/Comment.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/Comment.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/Comment.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/Comment.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/Comment.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/Comment.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/Comment.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/Comment.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/Comment~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Home/Models/DateExtension.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/DateExtension.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/DateExtension.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/DateExtension.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/DateExtension.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/DateExtension.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/DateExtension.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/DateExtension.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/DateExtension~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Home/Models/LifeUpdate.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdate.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdate.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdate.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdate.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdate.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdate.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdate.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdate~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Home/ViewModels/ArtworkViewModel.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkViewModel.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkViewModel.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkViewModel.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkViewModel.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkViewModel.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkViewModel.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkViewModel.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkViewModel~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Home/ViewModels/HomeViewModel.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeViewModel.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeViewModel.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeViewModel.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeViewModel.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeViewModel.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeViewModel.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeViewModel.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeViewModel~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Home/ViewModels/LifeUpdateViewModel.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdateViewModel.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdateViewModel.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdateViewModel.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdateViewModel.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdateViewModel.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdateViewModel.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdateViewModel.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LifeUpdateViewModel~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Home/ViewModels/MockData.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MockData.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MockData.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MockData.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MockData.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MockData.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MockData.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MockData.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MockData~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Login/LoginModels/AuthError.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AuthError.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AuthError.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AuthError.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AuthError.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AuthError.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AuthError.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AuthError.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AuthError~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Login/LoginModels/LoginModel.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginModel.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginModel.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginModel.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginModel.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginModel.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginModel.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginModel.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginModel~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Login/LoginModels/LoginUser.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginUser.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginUser.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginUser.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginUser.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginUser.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginUser.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginUser.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginUser~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Login/LoginViews/LoginView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/LoginView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Message/MessageViews/ChatDetailView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ChatDetailView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ChatDetailView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ChatDetailView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ChatDetailView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ChatDetailView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ChatDetailView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ChatDetailView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ChatDetailView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Message/MessageViews/CommentsMentionsView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/CommentsMentionsView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/CommentsMentionsView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/CommentsMentionsView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/CommentsMentionsView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/CommentsMentionsView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/CommentsMentionsView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/CommentsMentionsView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/CommentsMentionsView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Message/MessageViews/Components/ComponentsLibrary.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ComponentsLibrary.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ComponentsLibrary.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ComponentsLibrary.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ComponentsLibrary.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ComponentsLibrary.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ComponentsLibrary.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ComponentsLibrary.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ComponentsLibrary~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Message/MessageViews/Components/ImagePickerView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ImagePickerView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ImagePickerView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ImagePickerView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ImagePickerView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ImagePickerView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ImagePickerView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ImagePickerView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ImagePickerView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Message/MessageViews/FollowersView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/FollowersView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/FollowersView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/FollowersView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/FollowersView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/FollowersView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/FollowersView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/FollowersView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/FollowersView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Message/MessageViews/MessageView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Message/ViewModels/MessageBaseModels.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageBaseModels.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageBaseModels.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageBaseModels.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageBaseModels.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageBaseModels.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageBaseModels.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageBaseModels.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageBaseModels~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Message/ViewModels/MessageServices.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageServices.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageServices.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageServices.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageServices.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageServices.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageServices.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageServices.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageServices~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Message/ViewModels/MessageViewModel.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageViewModel.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageViewModel.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageViewModel.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageViewModel.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageViewModel.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageViewModel.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageViewModel.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/MessageViewModel~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Profile/ProfileViews/ArtworkUploadView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkUploadView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkUploadView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkUploadView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkUploadView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkUploadView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkUploadView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkUploadView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ArtworkUploadView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Profile/ProfileViews/BottomSlidingMenuView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/BottomSlidingMenuView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/BottomSlidingMenuView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/BottomSlidingMenuView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/BottomSlidingMenuView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/BottomSlidingMenuView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/BottomSlidingMenuView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/BottomSlidingMenuView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/BottomSlidingMenuView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Profile/ProfileViews/ColorExtension.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ColorExtension.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ColorExtension.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ColorExtension.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ColorExtension.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ColorExtension.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ColorExtension.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ColorExtension.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ColorExtension~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Profile/ProfileViews/DraftsView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/DraftsView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/DraftsView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/DraftsView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/DraftsView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/DraftsView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/DraftsView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/DraftsView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/DraftsView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Profile/ProfileViews/EditProfileView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/EditProfileView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/EditProfileView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/EditProfileView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/EditProfileView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/EditProfileView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/EditProfileView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/EditProfileView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/EditProfileView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Profile/ProfileViews/HistoryView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HistoryView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HistoryView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HistoryView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HistoryView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HistoryView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HistoryView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HistoryView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HistoryView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Profile/ProfileViews/ProfileView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Profile/ProfileViews/SettingsView/AccountSettingsView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AccountSettingsView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AccountSettingsView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AccountSettingsView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AccountSettingsView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AccountSettingsView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AccountSettingsView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AccountSettingsView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AccountSettingsView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Profile/ProfileViews/SettingsView/NotificationSettingsView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/NotificationSettingsView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/NotificationSettingsView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/NotificationSettingsView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/NotificationSettingsView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/NotificationSettingsView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/NotificationSettingsView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/NotificationSettingsView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/NotificationSettingsView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Profile/ProfileViews/SettingsView/PrivacySettingsView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/PrivacySettingsView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/PrivacySettingsView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/PrivacySettingsView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/PrivacySettingsView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/PrivacySettingsView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/PrivacySettingsView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/PrivacySettingsView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/PrivacySettingsView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Profile/ProfileViews/SettingsView/SettingsView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/SettingsView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/SettingsView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/SettingsView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/SettingsView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/SettingsView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/SettingsView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/SettingsView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/SettingsView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Profile/ViewModels/ProfileModel.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileModel.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileModel.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileModel.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileModel.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileModel.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileModel.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileModel.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileModel~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Profile/ViewModels/ProfileService.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileService.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileService.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileService.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileService.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileService.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileService.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileService.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileService~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Profile/ViewModels/ProfileUser.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileUser.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileUser.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileUser.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileUser.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileUser.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileUser.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileUser.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ProfileUser~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Services/AuthService.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AuthService.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AuthService.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AuthService.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AuthService.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AuthService.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AuthService.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AuthService.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AuthService~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Services/HomeService.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeService.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeService.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeService.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeService.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeService.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeService.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeService.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/HomeService~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Services/Models/User.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/User.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/User.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/User.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/User.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/User.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/User.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/User.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/User~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Services/NetworkConfig.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/NetworkConfig.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/NetworkConfig.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/NetworkConfig.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/NetworkConfig.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/NetworkConfig.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/NetworkConfig.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/NetworkConfig.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/NetworkConfig~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Services/StorageService.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/StorageService.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/StorageService.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/StorageService.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/StorageService.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/StorageService.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/StorageService.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/StorageService.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/StorageService~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/Shared/Components/AppTabBar.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AppTabBar.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AppTabBar.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AppTabBar.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AppTabBar.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AppTabBar.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AppTabBar.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AppTabBar.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/AppTabBar~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/tart_prototype/ContentView.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/tart_prototype/tart_prototypeApp.swift" : {
+    "const-values" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/tart_prototypeApp.swiftconstvalues",
+    "dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/tart_prototypeApp.d",
+    "diagnostics" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/tart_prototypeApp.dia",
+    "index-unit-output-path" : "/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/tart_prototypeApp.o",
+    "llvm-bc" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/tart_prototypeApp.bc",
+    "object" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/tart_prototypeApp.o",
+    "swift-dependencies" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/tart_prototypeApp.swiftdeps",
+    "swiftmodule" : "/Users/zack/Documents/Personal/Tart/tart_prototype_1.2/build/tart_prototype.build/Debug-iphoneos/tart_prototype.build/Objects-normal/arm64/tart_prototypeApp~partial.swiftmodule"
+  }
+}

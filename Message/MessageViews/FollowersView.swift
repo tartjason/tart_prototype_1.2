@@ -18,7 +18,7 @@ struct FollowersView: View {
                 .padding(.leading, 16)
                 
                 Text("Followers")
-                    .font(.system(size: 18, weight: .semibold))
+                    .font(AppFont.subtitle.font)
                     .padding(.leading, 8)
                 
                 Spacer()
@@ -61,11 +61,11 @@ struct FollowerRow: View {
             
             VStack(alignment: .leading, spacing: 2) {
                 Text(follower.username)
-                    .font(.system(size: 16, weight: .medium))
+                    .font(AppFont.body.font)
                     .foregroundColor(.black)
                 
                 Text("starts following you \(follower.timeText)")
-                    .font(.system(size: 14))
+                    .font(AppFont.subheadline.font)
                     .foregroundColor(.gray)
             }
             
@@ -75,7 +75,7 @@ struct FollowerRow: View {
                 isFollowing.toggle()
             }) {
                 Text(isFollowing ? "Following" : "Follow")
-                    .font(.system(size: 14, weight: .medium))
+                    .font(AppFont.subheadline.font)
                     .foregroundColor(isFollowing ? .gray : .black)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 6)

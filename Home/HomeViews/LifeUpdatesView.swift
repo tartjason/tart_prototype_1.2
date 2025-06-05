@@ -41,12 +41,12 @@ struct UpdateCardView: View {
                 HStack(alignment: .top, spacing: 12) {
                     // Username on the left
                     Text(update.username)
-                        .font(.system(size: 16, weight: .semibold))
+                        .font(AppFont.bodyBold.font)
                         .frame(width: 80, alignment: .leading)
                     
                     // Content to the right of username
                     Text(update.content)
-                        .font(.system(size: 16))
+                        .font(AppFont.body.font)
                 }
                 .padding(.horizontal)
                 .padding(.top, 16)
@@ -54,7 +54,7 @@ struct UpdateCardView: View {
                 // Image update layout
                 // Username above content
                 Text(update.username)
-                    .font(.system(size: 16, weight: .semibold))
+                    .font(AppFont.bodyBold.font)
                     .padding(.horizontal)
                     .padding(.top, 16)
                 
@@ -74,14 +74,14 @@ struct UpdateCardView: View {
                 
                 // Caption below image
                 Text(update.content)
-                    .font(.system(size: 16))
+                    .font(AppFont.body.font)
                     .padding(.horizontal)
             }
             
             // Time and Navigate Arrow
             HStack {
                 Text(update.createdAt.timeAgoDisplay())
-                    .font(.system(size: 14, weight: .light))
+                    .font(AppFont.lightText.font)
                     .foregroundColor(.gray)
                 
                 Spacer()

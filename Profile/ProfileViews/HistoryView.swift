@@ -22,7 +22,7 @@ struct HistoryView: View {
                 }
                 
                 Text("History")
-                    .font(.system(size: 18, weight: .semibold))
+                    .font(AppFont.subtitle.font)
                     .padding(.leading)
                 
                 Spacer()
@@ -37,7 +37,7 @@ struct HistoryView: View {
                     }
                 }) {
                     Text(isManaging ? "Done" : "Manage")
-                        .font(.system(size: 16))
+                        .font(AppFont.body.font)
                         .foregroundColor(isManaging ? .blue : .black)
                 }
             }
@@ -49,7 +49,7 @@ struct HistoryView: View {
                     // Today section
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Today")
-                            .font(.system(size: 18, weight: .semibold))
+                            .font(AppFont.subtitle.font)
                             .padding(.horizontal)
                         
                         ForEach(historyItems) { item in
@@ -85,7 +85,7 @@ struct HistoryView: View {
                         }
                     }) {
                         Text("Select All")
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(.black)
                     }
                     
@@ -97,7 +97,7 @@ struct HistoryView: View {
                         selectedItems.removeAll()
                     }) {
                         Text("Delete")
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                             .foregroundColor(selectedItems.isEmpty ? .gray : .black)
                     }
                     .disabled(selectedItems.isEmpty)
@@ -137,13 +137,13 @@ struct HistoryItemView: View {
                     // Bottom labels
                     HStack {
                         Text(item.title)
-                            .font(.caption)
+                            .font(AppFont.caption.font)
                             .foregroundColor(.white)
                         
                         Spacer()
                         
                         Text(item.medium)
-                            .font(.caption)
+                            .font(AppFont.caption.font)
                             .foregroundColor(.white)
                     }
                     .padding(.horizontal, 8)

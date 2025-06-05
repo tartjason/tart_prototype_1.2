@@ -32,10 +32,10 @@ struct ArtworkCardView: View {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("\(artwork.title) by \(artwork.artist)")
-                        .font(.system(size: 14, weight: .regular))
+                        .font(AppFont.subheadline.font)
                     
                     Text(artwork.medium)
-                        .font(.system(size: 12, weight: .light))
+                        .font(AppFont.lightText.font)
                         .foregroundColor(.gray)
                 }
                 
@@ -44,7 +44,7 @@ struct ArtworkCardView: View {
                 // Enter button
                 HStack(spacing: 4) {
                     Text("Enter")
-                        .font(.system(size: 14))
+                        .font(AppFont.subheadline.font)
                         .foregroundColor(.gray)
                     
                     Image(systemName: "chevron.right")

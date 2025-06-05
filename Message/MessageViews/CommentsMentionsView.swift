@@ -18,7 +18,7 @@ struct CommentsMentionsView: View {
                 .padding(.leading, 16)
                 
                 Text("Comments & Mentions")
-                    .font(.system(size: 18, weight: .semibold))
+                    .font(AppFont.subtitle.font)
                     .padding(.leading, 8)
                 
                 Spacer()
@@ -59,11 +59,11 @@ struct CommentRow: View {
                     // User info
                     VStack(alignment: .leading, spacing: 2) {
                         Text(comment.username)
-                            .font(.system(size: 15, weight: .medium))
+                            .font(AppFont.subheadline.font)
                             .foregroundColor(.black)
                         
                         Text("comments on \(comment.workTitle) \(comment.timeText)")
-                            .font(.system(size: 12))
+                            .font(AppFont.caption.font)
                             .foregroundColor(.gray)
                     }
                 }
@@ -82,7 +82,7 @@ struct CommentRow: View {
             
             // Comment text
             Text(comment.commentText)
-                .font(.system(size: 15))
+                .font(AppFont.subheadline.font)
                 .foregroundColor(.black)
                 .padding(.leading, 52) // Aligns with the start of the username
             
@@ -96,7 +96,7 @@ struct CommentRow: View {
                         .foregroundColor(.gray)
                     
                     Text("Reply")
-                        .font(.system(size: 14))
+                        .font(AppFont.subheadline.font)
                         .foregroundColor(.gray)
                 }
             }

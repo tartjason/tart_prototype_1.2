@@ -46,7 +46,7 @@ struct WelcomeView: View {
                 // Header Text
                 HStack {
                     Text("Welcome to")
-                        .font(.system(size: 32, weight: .bold))
+                        .font(AppFont.largeTitle.font)
                         .foregroundColor(.white)
                     
                     Spacer()
@@ -57,7 +57,7 @@ struct WelcomeView: View {
                     Spacer()
                     
                     Text("Tart")
-                        .font(.system(size: 32, weight: .bold))
+                        .font(AppFont.largeTitle.font)
                         .foregroundColor(.white)
                 }
                 .padding(.trailing, 24)
@@ -70,7 +70,7 @@ struct WelcomeView: View {
                         currentScreen = .login
                     }) {
                         Text("Login")
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(AppFont.bodyBold.font)
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .frame(height: 56)
@@ -121,11 +121,11 @@ struct SigninView: View {
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Welcome!")
-                            .font(.system(size: 28, weight: .bold))
+                            .font(AppFont.title.font)
                             .foregroundColor(.white)
                         
                         Text("Glad to see you...")
-                            .font(.system(size: 18, weight: .medium))
+                            .font(AppFont.subtitle.font)
                             .foregroundColor(.white)
                     }
                     .padding(.leading, 24)
@@ -151,7 +151,7 @@ struct SigninView: View {
                                 .foregroundColor(.blue)
                             
                             Text("Sign in with Google")
-                                .font(.system(size: 16))
+                                .font(AppFont.body.font)
                                 .foregroundColor(.gray)
                             
                             Spacer()
@@ -179,7 +179,7 @@ struct SigninView: View {
                                 .foregroundColor(.black)
                             
                             Text("Sign in with Apple")
-                                .font(.system(size: 16))
+                                .font(AppFont.body.font)
                                 .foregroundColor(.gray)
                             
                             Spacer()
@@ -206,7 +206,7 @@ struct SigninView: View {
                                 .foregroundColor(.blue)
                             
                             Text("Sign in with Facebook")
-                                .font(.system(size: 16))
+                                .font(AppFont.body.font)
                                 .foregroundColor(.gray)
                             
                             Spacer()
@@ -219,7 +219,7 @@ struct SigninView: View {
                     
                     // Or text
                     Text("Or")
-                        .font(.system(size: 14))
+                        .font(AppFont.subheadline.font)
                         .foregroundColor(.gray)
                         .padding(.vertical, 8)
                     
@@ -229,7 +229,7 @@ struct SigninView: View {
                             .foregroundColor(.gray)
                         
                         TextField("Your email", text: $email)
-                            .font(.system(size: 16))
+                            .font(AppFont.body.font)
                     }
                     .padding()
                     .background(Color(UIColor.systemGray6))
@@ -254,7 +254,7 @@ struct SigninView: View {
                         }
                         
                         Text("Remember me")
-                            .font(.system(size: 14))
+                            .font(AppFont.subheadline.font)
                             .foregroundColor(.gray)
                         
                         Spacer()
@@ -273,7 +273,7 @@ struct SigninView: View {
                         }
                     }) {
                         Text("Sign in")
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(AppFont.bodyBold.font)
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .frame(height: 56)
@@ -292,7 +292,7 @@ struct SigninView: View {
             VStack {
                 HStack {
                     Text("tart")
-                        .font(.system(size: 20, weight: .medium))
+                        .font(AppFont.title.font)
                         .padding(.leading, 24)
                         .padding(.top, 12)
                     
@@ -340,15 +340,15 @@ struct VerifyEmailView: View {
                 // Title and subtitle
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Check your email")
-                        .font(.system(size: 24, weight: .bold))
+                        .font(AppFont.title.font)
                         .foregroundColor(.black)
                     
                     Text(loginModel.currentUser?.email ?? "")
-                        .font(.system(size: 16))
+                        .font(AppFont.body.font)
                         .foregroundColor(Color(red: 0.6, green: 0.7, blue: 0.3))
                     
                     Text("If this email exist, you will receive an email with a\nOne Time Password (OTP).\nType that code below:")
-                        .font(.system(size: 14))
+                        .font(AppFont.subheadline.font)
                         .foregroundColor(.gray)
                         .lineSpacing(4)
                         .padding(.top, 4)
@@ -380,35 +380,35 @@ struct VerifyEmailView: View {
                             // Action to request another OTP
                         }) {
                             Text("here")
-                                .font(.system(size: 14))
+                                .font(AppFont.subheadline.font)
                                 .foregroundColor(.blue)
                         }
                         
                         Text("to")
-                            .font(.system(size: 14))
+                            .font(AppFont.subheadline.font)
                             .foregroundColor(.gray)
                     }
                     
                     Text("request another OTP")
-                        .font(.system(size: 14))
+                        .font(AppFont.subheadline.font)
                         .foregroundColor(.gray)
                         .padding(.leading, 16)
                     
                     HStack(spacing: 4) {
                         Text("If you need help, please visit our")
-                            .font(.system(size: 14))
+                            .font(AppFont.subheadline.font)
                             .foregroundColor(.gray)
                         
                         Button(action: {
                             // Action to go to support page
                         }) {
                             Text("support")
-                                .font(.system(size: 14))
+                                .font(AppFont.subheadline.font)
                                 .foregroundColor(.blue)
                         }
                         
                         Text("page.")
-                            .font(.system(size: 14))
+                            .font(AppFont.subheadline.font)
                             .foregroundColor(.gray)
                     }
                 }
@@ -429,7 +429,7 @@ struct VerifyEmailView: View {
                     }
                 }) {
                     Text("Sign in")
-                        .font(.system(size: 16, weight: .semibold))
+                        .font(AppFont.bodyBold.font)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .frame(height: 56)
@@ -464,7 +464,7 @@ struct OTPTextField: View {
             TextField("", text: $text)
                 .keyboardType(.numberPad)
                 .multilineTextAlignment(.center)
-                .font(.system(size: 18, weight: .medium))
+                .font(AppFont.subtitle.font)
                 .onChange(of: text) { newValue in
                     if newValue.count > 1 {
                         text = String(newValue.suffix(1))
@@ -484,11 +484,11 @@ struct BulletPoint: View {
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
             Text("•")
-                .font(.system(size: 14))
+                .font(AppFont.subheadline.font)
                 .foregroundColor(.gray)
             
             Text(text)
-                .font(.system(size: 14))
+                .font(AppFont.subheadline.font)
                 .foregroundColor(.gray)
                 .fixedSize(horizontal: false, vertical: true)
         }

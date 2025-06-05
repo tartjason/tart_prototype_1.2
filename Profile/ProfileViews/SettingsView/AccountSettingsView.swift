@@ -15,7 +15,7 @@ struct AccountSettingsView: View {
                 }
                 
                 Text("Account Settings")
-                    .font(.system(size: 18, weight: .semibold))
+                    .font(AppFont.subtitle.font)
                     .padding(.leading)
                 
                 Spacer()
@@ -57,13 +57,13 @@ struct AccountSettingsRow: View {
         Button(action: action) {
             HStack {
                 Text(title)
-                    .font(.system(size: 16))
+                    .font(AppFont.body.font)
                     .foregroundColor(.black)
                 
                 Spacer()
                 
                 Text(value)
-                    .font(.system(size: 16))
+                    .font(AppFont.body.font)
                     .foregroundColor(.gray)
                 
                 Image(systemName: "chevron.right")

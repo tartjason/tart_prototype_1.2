@@ -18,7 +18,7 @@ struct SettingsView: View {
                     }
                     
                     Text("Settings")
-                        .font(.system(size: 18, weight: .semibold))
+                        .font(AppFont.subtitle.font)
                         .padding(.leading)
                     
                     Spacer()
@@ -101,7 +101,7 @@ struct SettingsView: View {
                             // Handle logout
                         }) {
                             Text("Log Out")
-                                .font(.system(size: 16))
+                                .font(AppFont.body.font)
                                 .foregroundColor(.black)
                                 .frame(maxWidth: .infinity)
                                 .frame(height: 50)
@@ -161,13 +161,13 @@ struct SettingsRow: View {
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(title)
-                        .font(.system(size: 16))
+                        .font(AppFont.body.font)
                         .foregroundColor(.black)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     if let subtitle = subtitle {
                         Text(subtitle)
-                            .font(.system(size: 14))
+                            .font(AppFont.subheadline.font)
                             .foregroundColor(.gray)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
