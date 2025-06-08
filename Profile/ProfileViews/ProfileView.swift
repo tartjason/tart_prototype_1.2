@@ -46,7 +46,7 @@ struct ProfileView: View {
                         }
                     }
                     .padding(.horizontal, 20)
-                    .padding(.top, 10)
+                    .padding(.top, 8)
                     
                     // Profile Section
                     VStack(spacing: 0) {
@@ -320,7 +320,7 @@ struct ProfileView: View {
                                     currentIndex: currentIndex,
                                     screenWidth: geometry.size.width
                                 )
-                                .offset(x: CGFloat(index - currentIndex) * (geometry.size.width * 0.85) + dragOffset.width)
+                                .offset(x: CGFloat(index - currentIndex) * (geometry.size.width * 0.65) + dragOffset.width)
                                 .scaleEffect(index == currentIndex ? 1.0 : 0.85)
                                 .opacity(index == currentIndex ? 1.0 : 0.7)
                                 .animation(.spring(response: 0.6, dampingFraction: 0.8), value: currentIndex)
@@ -346,8 +346,8 @@ struct ProfileView: View {
                                 }
                         )
                     }
-                    .frame(height: 500)
-                    .padding(.top, 20)
+                    .frame(height: 300)
+                    .padding(.top, 8)
                     
                     // Page indicator
                     HStack(spacing: 8) {
@@ -358,13 +358,13 @@ struct ProfileView: View {
                                 .animation(.easeInOut(duration: 0.3), value: currentIndex)
                         }
                     }
-                    .padding(.top, 20)
+                    .padding(.top, 8)
                     
                     // Current artwork info
                     if !model.collectedArtworks.isEmpty && currentIndex < model.collectedArtworks.count {
                         let currentArtwork = model.collectedArtworks[currentIndex]
                         ArtworkInfoView(artwork: currentArtwork)
-                            .padding(.top, 16)
+                            .padding(.top, 20)
                             .padding(.horizontal, 20)
                     }
                     
@@ -417,7 +417,7 @@ struct ProfileView: View {
                         EmptyView()
                     }
                 }
-                .frame(width: screenWidth * 0.75, height: (screenWidth * 0.75) * 4/3)
+                .frame(width: screenWidth * 0.60, height: (screenWidth * 0.60) * 4/3)
                 .cornerRadius(16)
                 .shadow(color: .black.opacity(0.15), radius: 10, x: 0, y: 5)
                 
@@ -453,34 +453,34 @@ struct ProfileView: View {
         
         var body: some View {
             VStack(alignment: .leading, spacing: 12) {
-                // Title and artist
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(artwork.title)
-                        .font(AppFont.title.font)
-                        .foregroundColor(.black)
+                // // Title and artist
+                // VStack(alignment: .leading, spacing: 3) {
+                //     Text(artwork.title)
+                //         .font(AppFont.body.font)
+                //         .foregroundColor(.black)
                     
-                    Text("by \(artwork.artist)")
-                        .font(AppFont.body.font)
-                        .foregroundColor(.gray)
-                }
+                //     Text("by \(artwork.artist)")
+                //         .font(AppFont.subheadline.font)
+                //         .foregroundColor(.gray)
+                // }
                 
                 // Medium and location
                 HStack {
                     Label(artwork.medium, systemImage: "paintbrush")
-                        .font(AppFont.subheadline.font)
+                        .font(AppFont.caption.font)
                         .foregroundColor(.gray)
                     
                     Spacer()
                     
                     Label(artwork.location, systemImage: "location")
-                        .font(AppFont.subheadline.font)
+                        .font(AppFont.caption.font)
                         .foregroundColor(.gray)
                         .lineLimit(1)
                 }
                 
                 // Collection date
                 Text("Collected on \(artwork.createdAt.formatted(date: .abbreviated, time: .omitted))")
-                    .font(AppFont.caption.font)
+                    .font(AppFont.lightText.font)
                     .foregroundColor(.gray.opacity(0.8))
                 
                 // Action buttons
@@ -490,15 +490,15 @@ struct ProfileView: View {
                     }) {
                         HStack(spacing: 6) {
                             Image(systemName: "eye")
-                                .font(AppFont.subheadline.font)
+                                .font(AppFont.caption.font)
                             Text("View Details")
-                                .font(AppFont.subheadlineBold.font)
+                                .font(AppFont.captionBold.font)
                         }
                         .foregroundColor(.black)
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
                         .background(Color.gray.opacity(0.1))
-                        .cornerRadius(20)
+                        .cornerRadius(16)
                     }
                     
                     Button(action: {
@@ -506,22 +506,22 @@ struct ProfileView: View {
                     }) {
                         HStack(spacing: 6) {
                             Image(systemName: "square.and.arrow.up")
-                                .font(AppFont.subheadline.font)
+                                .font(AppFont.caption.font)
                             Text("Share")
-                                .font(AppFont.subheadlineBold.font)
+                                .font(AppFont.captionBold.font)
                         }
                         .foregroundColor(.white)
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
                         .background(Color.black)
-                        .cornerRadius(20)
+                        .cornerRadius(16)
                     }
                     
                     Spacer()
                 }
-                .padding(.top, 8)
+                .padding(.top, 10)
             }
-            .padding(.bottom, 20)
+            .padding(.bottom, 16)
         }
     }
     
