@@ -11,6 +11,8 @@ struct ArtworkUploadView: View {
     @State private var selectedLocation = ""
     @State private var showMediumPicker = false
     @State private var showLocationPicker = false
+    @State private var showErrorAlert = false
+    @State private var errorMessage = ""
     
     // Photo picker states
     @State private var artworkImageItem: PhotosPickerItem?
@@ -268,7 +270,9 @@ struct ArtworkUploadView: View {
                 
                 // Bottom buttons
                 HStack(spacing: 20) {
-                    Button(action: {}) {
+                    Button(action: {
+                        saveDraft()
+                    }) {
                         HStack(spacing: 8) {
                             Image(systemName: "photo")
                                 .font(.system(size: 18))
@@ -279,6 +283,7 @@ struct ArtworkUploadView: View {
                                 .foregroundColor(.gray)
                         }
                     }
+                    .disabled(artworkDescription.isEmpty && artworkImage == nil)
                     
                     Button(action: {}) {
                         HStack(spacing: 8) {
@@ -291,20 +296,30 @@ struct ArtworkUploadView: View {
                                 .foregroundColor(.gray)
                         }
                     }
+                    .disabled(artworkDescription.isEmpty || artworkImage == nil)
                     
                     Spacer()
                     
-                    // Post button
+                    // Post button with loading state
                     Button(action: {
                         submitArtwork()
                     }) {
-                        Text("Post")
-                            .font(AppFont.subheadlineBold.font)
-                            .foregroundColor(Color(hex: "5c5c5c"))
-                            .frame(width: 80, height: 36)
-                            .background(Color(hex: "E0EFFF"))
-                            .cornerRadius(18)
+                        HStack(spacing: 8) {
+                            if model.isUploading {
+                                ProgressView()
+                                    .progressViewStyle(CircularProgressViewStyle(tint: Color(hex: "5c5c5c")))
+                                    .scaleEffect(0.8)
+                            }
+                            
+                            Text(model.isUploading ? "上传中..." : "Post")
+                                .font(AppFont.subheadlineBold.font)
+                                .foregroundColor(canSubmit ? Color(hex: "5c5c5c") : .gray)
+                        }
+                        .frame(width: 80, height: 36)
+                        .background(canSubmit ? Color(hex: "E0EFFF") : Color.gray.opacity(0.3))
+                        .cornerRadius(18)
                     }
+                    .disabled(!canSubmit || model.isUploading)
                 }
                 .padding(.horizontal, 20)
                 .padding(.bottom, 40)
@@ -317,11 +332,78 @@ struct ArtworkUploadView: View {
         .sheet(isPresented: $showLocationPicker) {
             LocationPickerView(selectedLocation: $selectedLocation, options: locationOptions)
         }
+        .alert("错误", isPresented: $showErrorAlert) {
+            Button("确定", role: .cancel) { }
+        } message: {
+            Text(errorMessage)
+        }
+        .overlay(
+            // 上传进度覆盖层
+            Group {
+                if model.isUploading {
+                    Color.black.opacity(0.3)
+                        .ignoresSafeArea()
+                    
+                    VStack(spacing: 20) {
+                        ProgressView(value: model.uploadProgress)
+                            .progressViewStyle(LinearProgressViewStyle())
+                            .frame(width: 200) 
+                        
+                        Text("上传中... \(Int(model.uploadProgress * 100))%")
+                            .font(AppFont.body.font)
+                            .foregroundColor(.white)
+                    }
+                    .padding(20)
+                    .background(Color.black.opacity(0.8))
+                    .cornerRadius(12)
+                }
+            }
+        )
     }
     
     private func submitArtwork() {
-        // TODO: Submit artwork to model
-        dismiss()
+        Task {
+            do {
+                try await model.uploadArtwork(
+                    description: artworkDescription,
+                    inspirationDescription: inspirationDescription,
+                    medium: selectedMedium,
+                    location: selectedLocation,
+                    artworkImage: artworkImage,
+                    inspirationImage: inspirationImage
+                )
+                
+                await MainActor.run {
+                    dismiss()
+                }
+            } catch {
+                await MainActor.run {
+                    errorMessage = error.localizedDescription
+                    showErrorAlert = true
+                }
+            }
+        }
+    }
+    
+    private func saveDraft() {
+        do {
+            try model.saveDraft(
+                description: artworkDescription,
+                inspirationDescription: inspirationDescription,
+                medium: selectedMedium,
+                location: selectedLocation,
+                artworkImage: artworkImage,
+                inspirationImage: inspirationImage
+            )
+            dismiss()
+        } catch {
+            errorMessage = "保存草稿失败: \(error.localizedDescription)"
+            showErrorAlert = true
+        }
+    }
+    
+    private var canSubmit: Bool {
+        !artworkDescription.isEmpty && !selectedMedium.isEmpty && artworkImage != nil
     }
 }
 
@@ -474,8 +556,6 @@ struct LocationPickerView: View {
         }
     }
 }
-
-
 
 #Preview {
     ArtworkUploadView(model: ProfileModel())

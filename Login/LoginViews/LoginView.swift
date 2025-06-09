@@ -7,6 +7,7 @@ struct LoginView: View {
     enum Screen {
         case welcome
         case login
+        case register
         case verifyEmail
     }
     
@@ -18,6 +19,8 @@ struct LoginView: View {
                     WelcomeView(currentScreen: $currentScreen)
                 case .login:
                     SigninView(currentScreen: $currentScreen, loginModel: loginModel)
+                case .register:
+                    RegisterView(currentScreen: $currentScreen, loginModel: loginModel)
                 case .verifyEmail:
                     VerifyEmailView(currentScreen: $currentScreen, loginModel: loginModel)
                 }
@@ -79,14 +82,24 @@ struct WelcomeView: View {
                     }
                     
                     Button(action: {
-                        // Action for register
+                        currentScreen = .register
                     }) {
+                        Text("Register")
+                            .font(AppFont.bodyBold.font)
+                            .foregroundColor(.black)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 56)
+                            .background(Color.white)
+                            .cornerRadius(12)
                     }
                     
                     Button(action: {
-                        // Action for continue as guest
+                        // TODO: 实现游客模式
                     }) {
-                        
+                        Text("Continue as Guest")
+                            .font(AppFont.body.font)
+                            .foregroundColor(.white)
+                            .underline()
                     }
                 }
                 .padding(.horizontal, 24)
@@ -493,5 +506,249 @@ struct BulletPoint: View {
                 .fixedSize(horizontal: false, vertical: true)
         }
     }
+}
+
+struct RegisterView: View {
+    @Binding var currentScreen: LoginView.Screen
+    @ObservedObject var loginModel: LoginModel
+    @State private var email: String = ""
+    @State private var username: String = ""
+    @State private var showError = false
+    
+    var body: some View {
+        ZStack {
+            // White background
+            Color.white.edgesIgnoringSafeArea(.all)
+            
+            VStack(spacing: 0) {
+                // Header with forest background
+                ZStack(alignment: .leading) {
+                    // Forest background image
+                    Image("forestGlow")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: UIScreen.main.bounds.width, height: 200)
+                        .position(x: UIScreen.main.bounds.width/2, y: 100)
+                        .clipped()
+                    
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Join Tart!")
+                            .font(AppFont.title.font)
+                            .foregroundColor(.white)
+                        
+                        Text("Create your artistic journey...")
+                            .font(AppFont.subtitle.font)
+                            .foregroundColor(.white)
+                    }
+                    .padding(.leading, 24)
+                    .padding(.bottom, 24)
+                }
+                
+                // Registration options
+                VStack(spacing: 16) {
+                    // Social registration options
+                    Button(action: {
+                        Task {
+                            do {
+                                try await loginModel.registerWithGoogle()
+                                // 注册成功后可以直接进入主应用或显示成功页面
+                            } catch {
+                                showError = true
+                            }
+                        }
+                    }) {
+                        HStack {
+                            Image(systemName: "g.circle.fill")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                                .foregroundColor(.blue)
+                            
+                            Text("Register with Google")
+                                .font(AppFont.body.font)
+                                .foregroundColor(.gray)
+                            
+                            Spacer()
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color(UIColor.systemGray6))
+                        .cornerRadius(12)
+                    }
+                    .disabled(loginModel.isLoading)
+                    
+                    Button(action: {
+                        Task {
+                            do {
+                                try await loginModel.registerWithApple()
+                                // 注册成功后可以直接进入主应用或显示成功页面
+                            } catch {
+                                showError = true
+                            }
+                        }
+                    }) {
+                        HStack {
+                            Image(systemName: "apple.logo")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 20, height: 24)
+                                .foregroundColor(.black)
+                            
+                            Text("Register with Apple")
+                                .font(AppFont.body.font)
+                                .foregroundColor(.gray)
+                            
+                            Spacer()
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color(UIColor.systemGray6))
+                        .cornerRadius(12)
+                    }
+                    .disabled(loginModel.isLoading)
+                    
+                    // Or text
+                    Text("Or")
+                        .font(AppFont.subheadline.font)
+                        .foregroundColor(.gray)
+                        .padding(.vertical, 8)
+                    
+                    // Username field
+                    HStack {
+                        Image(systemName: "person")
+                            .foregroundColor(.gray)
+                        
+                        TextField("Username", text: $username)
+                            .font(AppFont.body.font)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                    }
+                    .padding()
+                    .background(Color(UIColor.systemGray6))
+                    .cornerRadius(12)
+                    
+                    // Email field
+                    HStack {
+                        Image(systemName: "envelope")
+                            .foregroundColor(.gray)
+                        
+                        TextField("Your email", text: $email)
+                            .font(AppFont.body.font)
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                    }
+                    .padding()
+                    .background(Color(UIColor.systemGray6))
+                    .cornerRadius(12)
+                    
+                    // Terms and privacy notice
+                    Text("By registering, you agree to our Terms of Service and Privacy Policy")
+                        .font(AppFont.caption.font)
+                        .foregroundColor(.gray)
+                        .multilineTextAlignment(.center)
+                        .padding(.vertical, 8)
+                    
+                    // Register button
+                    Button(action: {
+                        Task {
+                            do {
+                                try await loginModel.registerWithEmail(email, username: username)
+                                currentScreen = .verifyEmail
+                            } catch {
+                                showError = true
+                            }
+                        }
+                    }) {
+                        if loginModel.isLoading {
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 56)
+                                .background(Color(red: 0.3, green: 0.3, blue: 0.3))
+                                .cornerRadius(12)
+                        } else {
+                            Text("Create Account")
+                                .font(AppFont.bodyBold.font)
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 56)
+                                .background(Color(red: 0.3, green: 0.3, blue: 0.3))
+                                .cornerRadius(12)
+                        }
+                    }
+                    .disabled(loginModel.isLoading || email.isEmpty || username.isEmpty)
+                    
+                    // Login link
+                    Button(action: {
+                        currentScreen = .login
+                    }) {
+                        HStack(spacing: 4) {
+                            Text("Already have an account?")
+                                .font(AppFont.subheadline.font)
+                                .foregroundColor(.gray)
+                            
+                            Text("Sign in")
+                                .font(AppFont.subheadline.font)
+                                .foregroundColor(.blue)
+                        }
+                    }
+                    .padding(.top, 16)
+                }
+                .padding(.horizontal, 24)
+                .padding(.top, 32)
+                
+                Spacer()
+            }
+            
+            // App title at the top
+            VStack {
+                HStack {
+                    Button(action: {
+                        currentScreen = .welcome
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundColor(.black)
+                    }
+                    .padding(.leading, 24)
+                    .padding(.top, 12)
+                    
+                    Spacer()
+                    
+                    Text("tart")
+                        .font(AppFont.title.font)
+                        .padding(.trailing, 24)
+                        .padding(.top, 12)
+                }
+                
+                Spacer()
+            }
+        }
+        .alert("Error", isPresented: $showError) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(loginModel.error ?? "An error occurred")
+        }
+    }
+}
+
+#Preview("Welcome") {
+    WelcomeView(currentScreen: .constant(.welcome))
+}
+
+#Preview("Login") {
+    SigninView(currentScreen: .constant(.login), loginModel: LoginModel())
+}
+
+#Preview("Register") {
+    RegisterView(currentScreen: .constant(.register), loginModel: LoginModel())
+}
+
+#Preview("Verify Email") {
+    VerifyEmailView(currentScreen: .constant(.verifyEmail), loginModel: LoginModel())
+}
+
+#Preview("Main LoginView") {
+    LoginView()
 }
 

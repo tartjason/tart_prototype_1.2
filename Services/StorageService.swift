@@ -75,6 +75,29 @@ class StorageService {
         }
     }
     
+    // MARK: - Artwork Draft Storage
+    
+    func saveArtworkDrafts(_ drafts: [ArtworkDraft]) throws {
+        let url = getDocumentsDirectory().appendingPathComponent("artwork_drafts.json")
+        let data = try encoder.encode(drafts)
+        try data.write(to: url)
+    }
+    
+    func loadArtworkDrafts() throws -> [ArtworkDraft] {
+        let url = getDocumentsDirectory().appendingPathComponent("artwork_drafts.json")
+        guard fileManager.fileExists(atPath: url.path) else {
+            return []
+        }
+        let data = try Data(contentsOf: url)
+        return try decoder.decode([ArtworkDraft].self, from: data)
+    }
+    
+    func deleteDraftFile(id: String) throws {
+        let drafts = try loadArtworkDrafts()
+        let updatedDrafts = drafts.filter { $0.id != id }
+        try saveArtworkDrafts(updatedDrafts)
+    }
+    
     // MARK: - Clear All Data
     
     func clearAllData() throws {

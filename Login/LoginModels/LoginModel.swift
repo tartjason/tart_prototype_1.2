@@ -7,7 +7,140 @@ class LoginModel: ObservableObject {
     @Published var isLoading = false
     @Published var error: String?
     
+    // MARK: - Development Configuration
+    static let isDevelopmentMode = true // 设为false使用真实API
+    
+    private let authService = AuthService.shared
+    
     // MARK: - Authentication Methods
+    
+    // MARK: - Registration Methods
+    
+    func registerWithGoogle() async throws {
+        isLoading = true
+        error = nil
+        
+        do {
+            if LoginModel.isDevelopmentMode {
+                // 模拟模式
+                try await Task.sleep(nanoseconds: 1_500_000_000)
+                
+                self.currentUser = LoginUser(
+                    id: UUID().uuidString,
+                    name: "Google User",
+                    username: "googleuser\(Int.random(in: 1000...9999))",
+                    email: "user@gmail.com",
+                    bio: "Registered with Google",
+                    phoneNumber: "",
+                    connections: 0
+                )
+                self.isAuthenticated = true
+            } else {
+                // 真实API模式
+                try await authService.socialRegister(provider: "google")
+                if let user = authService.currentUser {
+                    self.currentUser = user.toLoginUser()
+                    self.isAuthenticated = authService.isAuthenticated
+                }
+            }
+        } catch let error as LoginAuthError {
+            self.error = error.localizedDescription
+            throw error
+        } catch {
+            self.error = LoginAuthError.unknown.localizedDescription
+            throw LoginAuthError.unknown
+        }
+        
+        isLoading = false
+    }
+    
+    func registerWithApple() async throws {
+        isLoading = true
+        error = nil
+        
+        do {
+            if LoginModel.isDevelopmentMode {
+                // 模拟模式
+                try await Task.sleep(nanoseconds: 1_500_000_000)
+                
+                self.currentUser = LoginUser(
+                    id: UUID().uuidString,
+                    name: "Apple User",
+                    username: "appleuser\(Int.random(in: 1000...9999))",
+                    email: "user@icloud.com",
+                    bio: "Registered with Apple",
+                    phoneNumber: "",
+                    connections: 0
+                )
+                self.isAuthenticated = true
+            } else {
+                // 真实API模式
+                try await authService.socialRegister(provider: "apple")
+                if let user = authService.currentUser {
+                    self.currentUser = user.toLoginUser()
+                    self.isAuthenticated = authService.isAuthenticated
+                }
+            }
+        } catch let error as LoginAuthError {
+            self.error = error.localizedDescription
+            throw error
+        } catch {
+            self.error = LoginAuthError.unknown.localizedDescription
+            throw LoginAuthError.unknown
+        }
+        
+        isLoading = false
+    }
+    
+    func registerWithEmail(_ email: String, username: String) async throws {
+        isLoading = true
+        error = nil
+        
+        do {
+            // 验证邮箱格式
+            if !isValidEmail(email) {
+                throw LoginAuthError.invalidEmail
+            }
+            
+            // 验证用户名
+            if username.isEmpty || username.count < 3 {
+                throw LoginAuthError.invalidUsername
+            }
+            
+            if LoginModel.isDevelopmentMode {
+                // 模拟模式
+                try await Task.sleep(nanoseconds: 1_000_000_000)
+                
+                self.currentUser = LoginUser(
+                    id: UUID().uuidString,
+                    name: username,
+                    username: username.lowercased(),
+                    email: email,
+                    bio: "New user",
+                    phoneNumber: "",
+                    connections: 0
+                )
+                self.isAuthenticated = true
+            } else {
+                // 真实API模式
+                try await authService.register(email: email, password: "", username: username)
+                if let user = authService.currentUser {
+                    self.currentUser = user.toLoginUser()
+                    self.isAuthenticated = authService.isAuthenticated
+                }
+            }
+        } catch let error as LoginAuthError {
+            self.error = error.localizedDescription
+            throw error
+        } catch {
+            self.error = LoginAuthError.unknown.localizedDescription
+            throw LoginAuthError.unknown
+        }
+        
+        isLoading = false
+    }
+    
+    // MARK: - Login Methods
     
     func signInWithEmail(_ email: String, rememberMe: Bool) async throws {
         isLoading = true

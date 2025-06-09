@@ -12,13 +12,37 @@ class ProfileService {
     }
     
     func uploadArtworkImage(_ image: UIImage) async throws -> String {
-        // Here you would typically:
-        // 1. Convert the image to data
-        // 2. Upload it to your storage service
-        // 3. Return the URL of the uploaded image
+        let s3Service = S3UploadService()
         
-        // For now, we'll just return a mock URL
-        return "https://example.com/images/artwork.jpg"
+        // 验证AWS配置
+        guard AWSConfigManager.shared.validateConfiguration() else {
+            throw ArtworkUploadError.networkError
+        }
+        
+        // 生成唯一的文件键
+        let key = S3UploadService.generateUniqueKey(for: .artwork)
+        
+        // 上传到S3
+        let response = try await s3Service.uploadImage(image, key: key)
+        
+        return response.url
+    }
+    
+    func uploadInspirationImage(_ image: UIImage) async throws -> String {
+        let s3Service = S3UploadService()
+        
+        // 验证AWS配置
+        guard AWSConfigManager.shared.validateConfiguration() else {
+            throw ArtworkUploadError.networkError
+        }
+        
+        // 生成唯一的文件键
+        let key = S3UploadService.generateUniqueKey(for: .inspiration)
+        
+        // 上传到S3
+        let response = try await s3Service.uploadImage(image, key: key)
+        
+        return response.url
     }
     
     func saveArtwork(_ artwork: Artwork) async throws -> Artwork {

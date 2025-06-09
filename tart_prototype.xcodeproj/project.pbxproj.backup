@@ -41,6 +41,7 @@
 		E9EF52C62DC26F3400FD480A /* LifeUpdateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF52C52DC26F3400FD480A /* LifeUpdateDetailView.swift */; };
 		E9FD93622DC9EA60009CF6B4 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD93612DC9EA60009CF6B4 /* MessageView.swift */; };
 		E9FD93642DC9EA7D009CF6B4 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD93632DC9EA7D009CF6B4 /* ChatDetailView.swift */; };
+		E9FD936B2DC9FA41009CF6B4 /* ArtworkUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD936A2DC9FA41009CF6B4 /* ArtworkUploadView.swift */; };
 		F13125C72DD3DBF600DD886C /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13125C62DD3DBF600DD886C /* MockData.swift */; };
 		F13125C82DD3DBF600DD886C /* ArtworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13125C32DD3DBF600DD886C /* ArtworkViewModel.swift */; };
 		F13125C92DD3DBF600DD886C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13125C42DD3DBF600DD886C /* HomeViewModel.swift */; };
@@ -118,6 +119,7 @@
 		E9FD935F2DC9EA35009CF6B4 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImagePickerView.swift; path = Message/MessageViews/Components/ImagePickerView.swift; sourceTree = SOURCE_ROOT; };
 		E9FD93612DC9EA60009CF6B4 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		E9FD93632DC9EA7D009CF6B4 /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
+		E9FD936A2DC9FA41009CF6B4 /* ArtworkUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArtworkUploadView.swift; path = Profile/ProfileViews/ArtworkUploadView.swift; sourceTree = SOURCE_ROOT; };
 		F13125C32DD3DBF600DD886C /* ArtworkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkViewModel.swift; sourceTree = "<group>"; };
 		F13125C42DD3DBF600DD886C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F13125C52DD3DBF600DD886C /* LifeUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeUpdateViewModel.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		F1333F7E2DD43235005FA801 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		F1333F822DD43566005FA801 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		F14BBC8A2DD3FC0B00243551 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F14BBC902DD4004600243551 /* ArtworkUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkUploadView.swift; sourceTree = "<group>"; };
 		F14BBC912DD4004600243551 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		F14BBC922DD4004600243551 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F14BBC942DD4004600243551 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
@@ -263,6 +266,7 @@
 				E993EC0C2DE1EEC4005D4576 /* SettingsView.swift */,
 				E993EC112DE1F3EE005D4576 /* PrivacySettingsView.swift */,
 				E993EC0F2DE1EF3B005D4576 /* AccountSettingsView.swift */,
+				F14BBC902DD4004600243551 /* ArtworkUploadView.swift */,
 				E993EC132DE8A19B005D4576 /* NotificationSettingsView.swift */,
 			);
 			path = SettingsView;
@@ -369,6 +373,7 @@
 				E9E6F1452DCB3B0D0015BE6E /* EditProfileView.swift */,
 				E9E6F1472DCB42DC0015BE6E /* ProfileModel.swift */,
 				E9FD935D2DC9EA25009CF6B4 /* ComponentsLibrary.swift */,
+				E9FD936A2DC9FA41009CF6B4 /* ArtworkUploadView.swift */,
 				E9FD935F2DC9EA35009CF6B4 /* ImagePickerView.swift */,
 				E902704C2DC8AE4400469B3B /* AppTabBar.swift */,
 				E902704E2DC8BB5100469B3B /* ProfileView.swift */,
@@ -582,6 +587,7 @@
 				E9C19DA22DBFC89800783E16 /* LoginView.swift in Sources */,
 				E9E6F1482DCB42DC0015BE6E /* ProfileModel.swift in Sources */,
 				E9B4A3DD2DD5CAE7004ED072 /* BottomSlidingMenuView.swift in Sources */,
+				E9FD936B2DC9FA41009CF6B4 /* ArtworkUploadView.swift in Sources */,
 				E9DEB6B22DC10393006D502D /* InputOverley.swift in Sources */,
 				E993EC0B2DE1EB79005D4576 /* HistoryView.swift in Sources */,
 				E9EF52C22DC22F0900FD480A /* ArtworkDetailView.swift in Sources */,

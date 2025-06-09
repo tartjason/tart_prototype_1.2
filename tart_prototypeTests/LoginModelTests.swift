@@ -316,4 +316,197 @@ final class LoginModelTests: XCTestCase {
         XCTAssertEqual(user.phoneNumber, "+1234567890")
         XCTAssertEqual(user.connections, 0)
     }
+    
+    // MARK: - Registration Tests
+    func testRegisterWithEmailSuccess() async {
+        let expectation = XCTestExpectation(description: "Email registration success")
+        
+        do {
+            try await loginModel.registerWithEmail("newuser@example.com", username: "newuser123")
+            
+            XCTAssertTrue(loginModel.isAuthenticated)
+            XCTAssertNotNil(loginModel.currentUser)
+            XCTAssertEqual(loginModel.currentUser?.email, "newuser@example.com")
+            XCTAssertEqual(loginModel.currentUser?.username, "newuser123")
+            XCTAssertFalse(loginModel.isLoading)
+            XCTAssertNil(loginModel.error)
+            
+            expectation.fulfill()
+        } catch {
+            XCTFail("Email registration should succeed: \(error)")
+        }
+        
+        await fulfillment(of: [expectation], timeout: 2.0)
+    }
+    
+    func testRegisterWithGoogleSuccess() async {
+        let expectation = XCTestExpectation(description: "Google registration success")
+        
+        do {
+            try await loginModel.registerWithGoogle()
+            
+            XCTAssertTrue(loginModel.isAuthenticated)
+            XCTAssertNotNil(loginModel.currentUser)
+            XCTAssertEqual(loginModel.currentUser?.name, "Google User")
+            XCTAssertTrue(loginModel.currentUser?.username.hasPrefix("googleuser") ?? false)
+            XCTAssertEqual(loginModel.currentUser?.email, "user@gmail.com")
+            XCTAssertFalse(loginModel.isLoading)
+            XCTAssertNil(loginModel.error)
+            
+            expectation.fulfill()
+        } catch {
+            XCTFail("Google registration should succeed: \(error)")
+        }
+        
+        await fulfillment(of: [expectation], timeout: 2.0)
+    }
+    
+    func testRegisterWithAppleSuccess() async {
+        let expectation = XCTestExpectation(description: "Apple registration success")
+        
+        do {
+            try await loginModel.registerWithApple()
+            
+            XCTAssertTrue(loginModel.isAuthenticated)
+            XCTAssertNotNil(loginModel.currentUser)
+            XCTAssertEqual(loginModel.currentUser?.name, "Apple User")
+            XCTAssertTrue(loginModel.currentUser?.username.hasPrefix("appleuser") ?? false)
+            XCTAssertEqual(loginModel.currentUser?.email, "user@icloud.com")
+            XCTAssertFalse(loginModel.isLoading)
+            XCTAssertNil(loginModel.error)
+            
+            expectation.fulfill()
+        } catch {
+            XCTFail("Apple registration should succeed: \(error)")
+        }
+        
+        await fulfillment(of: [expectation], timeout: 2.0)
+    }
+    
+    func testRegisterWithInvalidEmail() async {
+        let invalidEmails = [
+            "invalid-email",
+            "@example.com", 
+            "test@",
+            "",
+            "test.example.com"
+        ]
+        
+        for email in invalidEmails {
+            do {
+                try await loginModel.registerWithEmail(email, username: "validuser")
+                XCTFail("Should throw error for invalid email: \(email)")
+            } catch LoginAuthError.invalidEmail {
+                XCTAssertFalse(loginModel.isAuthenticated)
+                XCTAssertNil(loginModel.currentUser)
+                XCTAssertNotNil(loginModel.error)
+            } catch {
+                XCTFail("Should throw LoginAuthError.invalidEmail for invalid email: \(email)")
+            }
+        }
+    }
+    
+    func testRegisterWithInvalidUsername() async {
+        let invalidUsernames = [
+            "",
+            "ab",  // Too short
+            "a",   // Too short
+        ]
+        
+        for username in invalidUsernames {
+            do {
+                try await loginModel.registerWithEmail("valid@example.com", username: username)
+                XCTFail("Should throw error for invalid username: '\(username)'")
+            } catch LoginAuthError.invalidUsername {
+                XCTAssertFalse(loginModel.isAuthenticated)
+                XCTAssertNil(loginModel.currentUser)
+                XCTAssertNotNil(loginModel.error)
+            } catch {
+                XCTFail("Should throw LoginAuthError.invalidUsername for invalid username: '\(username)'")
+            }
+        }
+    }
+    
+    func testRegisterLoadingState() async {
+        let expectation = XCTestExpectation(description: "Registration loading state test")
+        
+        var loadingStates: [Bool] = []
+        
+        loginModel.$isLoading
+            .sink { isLoading in
+                loadingStates.append(isLoading)
+            }
+            .store(in: &cancellables)
+        
+        Task {
+            try? await loginModel.registerWithEmail("test@example.com", username: "testuser")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                XCTAssertTrue(loadingStates.contains(true), "Loading should be true during registration")
+                XCTAssertFalse(self.loginModel.isLoading, "Loading should be false after registration")
+                expectation.fulfill()
+            }
+        }
+        
+        await fulfillment(of: [expectation], timeout: 3.0)
+    }
+    
+    // MARK: - UI Integration Tests
+    func testViewStateTransitions() async {
+        // 模拟用户从注册到验证的完整流程
+        do {
+            // 1. 注册
+            try await loginModel.registerWithEmail("test@example.com", username: "testuser")
+            XCTAssertTrue(loginModel.isAuthenticated)
+            
+            // 2. 模拟需要验证邮箱的情况
+            loginModel.signOut()
+            try await loginModel.signInWithEmail("test@example.com", rememberMe: false)
+            
+            // 3. 验证OTP
+            try await loginModel.verifyOTP("123456")
+            XCTAssertTrue(loginModel.isAuthenticated)
+            
+        } catch {
+            XCTFail("Complete user flow should succeed: \(error)")
+        }
+    }
+    
+    // MARK: - Network Simulation Tests
+    func testNetworkErrorHandling() async {
+        // 这些测试在实际后端集成时会很有用
+        // 目前只是框架，实际需要mock network responses
+        
+        // 测试网络超时
+        // 测试服务器错误 (500)
+        // 测试认证失败 (401)
+        // 测试用户已存在 (409)
+    }
+    
+    // MARK: - Persistence Tests
+    func testUserDataPersistence() {
+        // 测试用户数据是否正确保存和恢复
+        let testUser = LoginUser(
+            id: "test-id",
+            name: "Test User",
+            username: "testuser",
+            email: "test@example.com",
+            bio: "Test bio",
+            phoneNumber: "+1234567890",
+            connections: 0
+        )
+        
+        // 保存用户数据
+        testUser.save()
+        
+        // 恢复用户数据
+        let loadedUser = LoginUser.load()
+        XCTAssertNotNil(loadedUser)
+        XCTAssertEqual(loadedUser?.id, testUser.id)
+        XCTAssertEqual(loadedUser?.email, testUser.email)
+        
+        // 清理
+        LoginUser.clear()
+        XCTAssertNil(LoginUser.load())
+    }
 } 

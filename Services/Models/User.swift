@@ -1,4 +1,5 @@
 import Foundation
+// Note: LoginUser需要在同一个module中或者需要import
 
 public struct User: Identifiable, Codable, Hashable {
     public let id: String
@@ -33,5 +34,21 @@ public struct User: Identifiable, Codable, Hashable {
     
     public static func == (lhs: User, rhs: User) -> Bool {
         lhs.id == rhs.id
+    }
+    
+    // MARK: - LoginUser Conversion
+    func toLoginUser() -> LoginUser {
+        return LoginUser(
+            id: self.id,
+            name: self.username, // 使用username作为显示名称
+            username: self.username,
+            email: self.email,
+            bio: self.bio ?? "",
+            phoneNumber: "", // User模型中没有phoneNumber，使用空字符串
+            connections: 0, // 默认连接数
+            profileImageURL: self.profileImageURL,
+            isVerified: true, // 从AuthService来的用户默认已验证
+            joinDate: self.createdAt
+        )
     }
 } 

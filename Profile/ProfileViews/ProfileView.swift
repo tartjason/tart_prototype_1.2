@@ -291,7 +291,7 @@ struct ProfileView: View {
         @ObservedObject var model: ProfileModel
         
         var body: some View {
-            VStack(spacing: 0) {
+                VStack(spacing: 0) {
                 if model.collectedArtworks.isEmpty {
                     // Empty state
                     VStack(spacing: 16) {
@@ -312,7 +312,7 @@ struct ProfileView: View {
                 } else {
                     // Card carousel
                     GeometryReader { geometry in
-                        ZStack {
+                    ZStack {
                             ForEach(Array(model.collectedArtworks.enumerated()), id: \.offset) { index, artwork in
                                 ArtworkCollectionCard(
                                     artwork: artwork,
@@ -327,12 +327,12 @@ struct ProfileView: View {
                                 .animation(.spring(response: 0.3, dampingFraction: 0.9), value: dragOffset)
                             }
                         }
-                        .gesture(
-                            DragGesture()
-                                .onChanged { value in
+                    .gesture(
+                        DragGesture()
+                            .onChanged { value in
                                     dragOffset = value.translation
-                                }
-                                .onEnded { value in
+                            }
+                            .onEnded { value in
                                     let threshold: CGFloat = 50
                                     let dragDistance = value.translation.width
                                     
@@ -343,8 +343,8 @@ struct ProfileView: View {
                                     }
                                     
                                     dragOffset = .zero
-                                }
-                        )
+                            }
+                    )
                     }
                     .frame(height: 300)
                     .padding(.top, 8)
@@ -394,7 +394,7 @@ struct ProfileView: View {
                         Rectangle()
                             .fill(Color.gray.opacity(0.1))
                             .aspectRatio(3/4, contentMode: .fit)
-                            .overlay(
+                .overlay(
                                 VStack(spacing: 8) {
                                     Image(systemName: "photo")
                                         .font(.system(size: 32))
@@ -406,7 +406,7 @@ struct ProfileView: View {
                                 }
                             )
                     case .empty:
-                        Rectangle()
+                            Rectangle()
                             .fill(Color.gray.opacity(0.2))
                             .aspectRatio(3/4, contentMode: .fit)
                             .overlay(
@@ -437,12 +437,12 @@ struct ProfileView: View {
                 .padding(.vertical, 12)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(
-                    LinearGradient(
+                                    LinearGradient(
                         colors: [Color.black.opacity(0.7), Color.clear],
                         startPoint: .bottom,
                         endPoint: .top
-                    )
-                )
+                                    )
+                                )
                 .offset(y: -60)
             }
         }
@@ -469,9 +469,9 @@ struct ProfileView: View {
                     Label(artwork.medium, systemImage: "paintbrush")
                         .font(AppFont.caption.font)
                         .foregroundColor(.gray)
-                    
-                    Spacer()
-                    
+                                        
+                                        Spacer()
+                                        
                     Label(artwork.location, systemImage: "location")
                         .font(AppFont.caption.font)
                         .foregroundColor(.gray)
@@ -509,7 +509,7 @@ struct ProfileView: View {
                                 .font(AppFont.caption.font)
                             Text("Share")
                                 .font(AppFont.captionBold.font)
-                        }
+                    }
                         .foregroundColor(.white)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
@@ -548,9 +548,9 @@ struct ProfileView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding(.top, 60)
                 } else {
-                    ScrollView {
+                ScrollView {
                         VStack(spacing: 1) {
-                            ForEach(lifeUpdates) { update in
+                        ForEach(lifeUpdates) { update in
                                 LifeUpdateCard(update: update)
                             }
                         }
@@ -620,9 +620,9 @@ struct ProfileView: View {
                     AsyncImage(url: URL(string: firstImageURL)) { phase in
                         switch phase {
                         case .success(let image):
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
                                 .frame(maxHeight: 200)
                                 .clipped()
                         case .failure(_):
@@ -645,13 +645,13 @@ struct ProfileView: View {
                                 .fill(Color.gray.opacity(0.2))
                                 .frame(height: 150)
                                 .overlay(
-                                    ProgressView()
+                        ProgressView()
                                         .progressViewStyle(CircularProgressViewStyle(tint: .gray))
                                 )
                         @unknown default:
                             EmptyView()
-                        }
                     }
+                }
                     .padding(.top, 8)
                 }
                 
@@ -770,9 +770,9 @@ struct ProfileView: View {
                 AsyncImage(url: URL(string: artwork.imageURL)) { phase in
                     switch phase {
                     case .success(let image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
                             .frame(height: 120)
                             .clipped()
                     case .failure(_):
@@ -789,7 +789,7 @@ struct ProfileView: View {
                             .fill(Color.gray.opacity(0.2))
                             .frame(height: 120)
                             .overlay(
-                                ProgressView()
+                    ProgressView()
                                     .progressViewStyle(CircularProgressViewStyle(tint: .gray))
                             )
                     @unknown default:
