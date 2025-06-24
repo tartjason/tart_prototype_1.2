@@ -2,6 +2,7 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject private var loginModel = LoginModel()
+    @StateObject private var amplifyLoginModel = AmplifyLoginModel()
     @State private var currentScreen: Screen = .welcome
     
     enum Screen {
@@ -9,6 +10,7 @@ struct LoginView: View {
         case login
         case register
         case verifyEmail
+        case amplifyLogin
     }
     
     var body: some View {
@@ -23,6 +25,8 @@ struct LoginView: View {
                     RegisterView(currentScreen: $currentScreen, loginModel: loginModel)
                 case .verifyEmail:
                     VerifyEmailView(currentScreen: $currentScreen, loginModel: loginModel)
+                case .amplifyLogin:
+                    AmplifyLoginView(currentScreen: $currentScreen, amplifyLoginModel: amplifyLoginModel)
                 }
             }
         }
@@ -90,6 +94,18 @@ struct WelcomeView: View {
                             .frame(maxWidth: .infinity)
                             .frame(height: 56)
                             .background(Color.white)
+                            .cornerRadius(12)
+                    }
+                    
+                    Button(action: {
+                        currentScreen = .amplifyLogin
+                    }) {
+                        Text("AWS Amplify Login")
+                            .font(AppFont.bodyBold.font)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 56)
+                            .background(Color.orange)
                             .cornerRadius(12)
                     }
                     
@@ -729,6 +745,226 @@ struct RegisterView: View {
         } message: {
             Text(loginModel.error ?? "An error occurred")
         }
+    }
+}
+
+struct AmplifyLoginView: View {
+    @Binding var currentScreen: LoginView.Screen
+    @ObservedObject var amplifyLoginModel: AmplifyLoginModel
+    @State private var email = ""
+    @State private var password = ""
+    @State private var username = ""
+    @State private var confirmationCode = ""
+    @State private var isSignUpMode = false
+    @State private var showingAlert = false
+    @State private var alertMessage = ""
+    
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                VStack(spacing: 20) {
+                    headerView
+                    
+                    if amplifyLoginModel.needsEmailConfirmation {
+                        confirmationView
+                    } else if isSignUpMode {
+                        signUpView
+                    } else {
+                        signInView
+                    }
+                    
+                    if !amplifyLoginModel.needsEmailConfirmation {
+                        toggleModeView
+                    }
+                    
+                    Button("← Back to Welcome") {
+                        currentScreen = .welcome
+                    }
+                    .font(.subheadline)
+                    .foregroundColor(.blue)
+                    .padding(.top, 20)
+                    
+                    Spacer()
+                }
+                .padding()
+            }
+            .navigationTitle("AWS Amplify Login")
+            .navigationBarTitleDisplayMode(.large)
+            .alert("提示", isPresented: $showingAlert) {
+                Button("确定") { }
+            } message: {
+                Text(alertMessage)
+            }
+            .onChange(of: amplifyLoginModel.error) { error in
+                if let error = error {
+                    alertMessage = error
+                    showingAlert = true
+                    amplifyLoginModel.error = nil
+                }
+            }
+        }
+    }
+    
+    private var headerView: some View {
+        VStack(spacing: 10) {
+            Image(systemName: "cloud.fill")
+                .font(.system(size: 60))
+                .foregroundColor(.orange)
+            
+            Text("AWS Amplify Auth")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            
+            Text(isSignUpMode ? "创建云端账户" : "云端登录")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+        }
+        .padding(.top, 20)
+        .padding(.bottom, 30)
+    }
+    
+    private var signInView: some View {
+        VStack(spacing: 15) {
+            TextField("邮箱地址", text: $email)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .keyboardType(.emailAddress)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+            
+            SecureField("密码", text: $password)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            
+            Button(action: signIn) {
+                if amplifyLoginModel.isLoading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                } else {
+                    Text("登录")
+                        .fontWeight(.semibold)
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: 50)
+            .background(Color.orange)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+            .disabled(amplifyLoginModel.isLoading || email.isEmpty || password.isEmpty)
+        }
+    }
+    
+    private var signUpView: some View {
+        VStack(spacing: 15) {
+            TextField("用户名", text: $username)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+            
+            TextField("邮箱地址", text: $email)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .keyboardType(.emailAddress)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+            
+            SecureField("密码", text: $password)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            
+            Button(action: signUp) {
+                if amplifyLoginModel.isLoading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                } else {
+                    Text("注册")
+                        .fontWeight(.semibold)
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: 50)
+            .background(Color.green)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+            .disabled(amplifyLoginModel.isLoading || email.isEmpty || password.isEmpty || username.isEmpty)
+        }
+    }
+    
+    private var confirmationView: some View {
+        VStack(spacing: 15) {
+            Text("邮箱验证")
+                .font(.title2)
+                .fontWeight(.bold)
+            
+            Text("我们已向 \(amplifyLoginModel.pendingEmail) 发送验证码")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+            
+            TextField("验证码", text: $confirmationCode)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .keyboardType(.numberPad)
+            
+            Button(action: confirmSignUp) {
+                if amplifyLoginModel.isLoading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                } else {
+                    Text("验证")
+                        .fontWeight(.semibold)
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: 50)
+            .background(Color.orange)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+            .disabled(amplifyLoginModel.isLoading || confirmationCode.isEmpty)
+        }
+    }
+    
+    private var toggleModeView: some View {
+        Button(action: {
+            isSignUpMode.toggle()
+            clearFields()
+        }) {
+            Text(isSignUpMode ? "已有账户？点击登录" : "没有账户？点击注册")
+                .font(.subheadline)
+                .foregroundColor(.blue)
+        }
+    }
+    
+    private func signIn() {
+        Task {
+            do {
+                try await amplifyLoginModel.signInWithEmail(email, password: password)
+            } catch {
+                // Error is handled by the model
+            }
+        }
+    }
+    
+    private func signUp() {
+        Task {
+            do {
+                try await amplifyLoginModel.signUpWithEmail(email, password: password, username: username)
+            } catch {
+                // Error is handled by the model
+            }
+        }
+    }
+    
+    private func confirmSignUp() {
+        Task {
+            do {
+                try await amplifyLoginModel.confirmSignUp(confirmationCode: confirmationCode)
+            } catch {
+                // Error is handled by the model
+            }
+        }
+    }
+    
+    private func clearFields() {
+        email = ""
+        password = ""
+        username = ""
+        confirmationCode = ""
     }
 }
 

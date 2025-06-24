@@ -1,4 +1,5 @@
 import SwiftUI
+import Amplify
 
 struct ProfileView: View {
     @StateObject private var model = ProfileModel()
@@ -9,6 +10,7 @@ struct ProfileView: View {
     @State private var navigateToDrafts = false
     @State private var navigateToHistory = false
     @State private var navigateToSettings = false
+    @State private var showSignOutAlert = false
     
     var body: some View {
         NavigationView {
@@ -198,13 +200,16 @@ struct ProfileView: View {
                     onSettingsTapped: {
                         withAnimation(.easeInOut(duration: 0.3)) {
                             showMenu = false
-                                                }
+                        }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                             navigateToSettings = true
-                                                }
+                        }
                     },
                     onHelpCenterTapped: {
                         print("Help Center tapped")
+                    },
+                    onSignOutTapped: {
+                        showSignOutAlert = true
                     }
                 )
             }
@@ -216,6 +221,14 @@ struct ProfileView: View {
                     EditProfileView(model: model)
                 }
             }
+            .alert("Sign Out", isPresented: $showSignOutAlert) {
+                Button("Cancel", role: .cancel) { }
+                Button("Sign Out", role: .destructive) {
+                    signOut()
+                }
+            } message: {
+                Text("Are you sure you want to sign out?")
+            }
             .task {
                 do {
                     try await model.fetchUserArtworks()
@@ -223,6 +236,17 @@ struct ProfileView: View {
                 } catch {
                     print("Error fetching data: \(error)")
                 }
+            }
+        }
+    }
+    
+    private func signOut() {
+        Task {
+            do {
+                _ = try await Amplify.Auth.signOut()
+                print("User signed out successfully")
+            } catch {
+                print("Error signing out: \(error)")
             }
         }
     }
