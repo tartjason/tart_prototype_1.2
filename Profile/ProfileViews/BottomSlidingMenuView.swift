@@ -9,6 +9,7 @@ struct BottomSlidingMenuView: View {
     var onHistoryTapped: () -> Void = {}
     var onSettingsTapped: () -> Void = {}
     var onHelpCenterTapped: () -> Void = {}
+    var onSignOutTapped: () -> Void = {}
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -79,6 +80,25 @@ struct BottomSlidingMenuView: View {
                             label: "Help Center",
                             action: {
                                 onHelpCenterTapped()
+                                withAnimation(.easeInOut(duration: 0.3)) {
+                                    isShowing = false
+                                }
+                            }
+                        )
+                        
+                        // Divider
+                        Rectangle()
+                            .fill(Color.gray.opacity(0.2))
+                            .frame(height: 1)
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 16)
+                        
+                        // Sign Out
+                        MenuButton(
+                            icon: "rectangle.portrait.and.arrow.right",
+                            label: "Sign Out",
+                            action: {
+                                onSignOutTapped()
                                 withAnimation(.easeInOut(duration: 0.3)) {
                                     isShowing = false
                                 }

@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
+import Amplify
 
 @main
 struct tart_prototypeApp: App {
+    init() {
+        // 初始化Amplify
+        AmplifyManager.shared.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

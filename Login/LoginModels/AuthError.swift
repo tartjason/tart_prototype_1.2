@@ -3,7 +3,9 @@ import Foundation
 enum LoginAuthError: LocalizedError {
     case invalidEmail
     case invalidPassword
+    case invalidUsername
     case userNotFound
+    case userAlreadyExists
     case networkError
     case invalidOTP
     case otpExpired
@@ -15,8 +17,12 @@ enum LoginAuthError: LocalizedError {
             return "Invalid email address"
         case .invalidPassword:
             return "Invalid password"
+        case .invalidUsername:
+            return "Username must be at least 3 characters long"
         case .userNotFound:
             return "User not found"
+        case .userAlreadyExists:
+            return "User already exists with this email"
         case .networkError:
             return "Network error occurred"
         case .invalidOTP:

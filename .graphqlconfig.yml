@@ -1,0 +1,12 @@
+projects:
+  tartprototype12:
+    schemaPath: graphql/schema.json
+    includes:
+      - ''
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: swift
+        generatedFileName: Zack_test
+        docsFilePath: .

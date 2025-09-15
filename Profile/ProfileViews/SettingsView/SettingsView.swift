@@ -5,6 +5,7 @@ struct SettingsView: View {
     @State private var navigateToAccountSettings = false
     @State private var navigateToPrivacySettings = false
     @State private var navigateToNotificationSettings = false
+    @State private var showLogin = false
     
     var body: some View {
             VStack(spacing: 0) {
@@ -98,7 +99,7 @@ struct SettingsView: View {
                         
                         // Log Out button
                         Button(action: {
-                            // Handle logout
+                            showLogin = true
                         }) {
                             Text("Log Out")
                                 .font(AppFont.body.font)
@@ -141,6 +142,9 @@ struct SettingsView: View {
                         // Also hide navigation bar when view appears
                         UINavigationBar.appearance().isHidden = false
                     }
+            .fullScreenCover(isPresented: $showLogin) {
+                LoginView()
+            }
         }
     }
 

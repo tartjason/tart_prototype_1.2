@@ -25,6 +25,8 @@ enum AuthError: Error {
 }
 
 class AuthService: ObservableObject {
+    static let shared = AuthService()
+    
     @Published var isAuthenticated: Bool = false
     @Published var currentUser: User?
     @Published var error: AuthError?
@@ -44,7 +46,7 @@ class AuthService: ObservableObject {
         set { UserDefaults.standard.set(newValue, forKey: "refreshToken") }
     }
     
-    init(networkConfig: NetworkConfig = .shared,
+    private init(networkConfig: NetworkConfig = .shared,
          storageService: StorageService = .shared,
          session: URLSession = .shared) {
         self.networkConfig = networkConfig
@@ -134,6 +136,49 @@ class AuthService: ObservableObject {
                 }
             case 409:
                 throw AuthError.invalidCredentials // Email already exists
+            default:
+                throw AuthError.unknown
+            }
+        } catch let error as AuthError {
+            await MainActor.run { self.error = error }
+            throw error
+        } catch {
+            let authError = AuthError.networkError(error)
+            await MainActor.run { self.error = authError }
+            throw authError
+        }
+    }
+    
+    func socialRegister(provider: String) async throws {
+        let url = networkConfig.baseURL.appendingPathComponent("auth/social/\(provider)")
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = networkConfig.headers
+        
+        let socialData = [
+            "provider": provider,
+            "access_token": "mock_token" // 在实际使用中，这里应该是从社交平台获取的token
+        ]
+        request.httpBody = try JSONSerialization.data(withJSONObject: socialData)
+        
+        do {
+            let (data, response) = try await session.data(for: request)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw AuthError.unknown
+            }
+            
+            switch httpResponse.statusCode {
+            case 200, 201:
+                let authResponse = try decoder.decode(AuthResponse.self, from: data)
+                await MainActor.run {
+                    self.accessToken = authResponse.accessToken
+                    self.refreshToken = authResponse.refreshToken
+                    self.currentUser = authResponse.user
+                    self.isAuthenticated = true
+                }
+            case 409:
+                throw AuthError.invalidCredentials // User already exists
             default:
                 throw AuthError.unknown
             }
